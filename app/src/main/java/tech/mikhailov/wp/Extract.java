@@ -70,8 +70,21 @@ public final class Extract {
 
         System.out.println("\n── what it answered ──\n" + answer);
 
+        // DID IT ACTUALLY SETTLE? `Flow.triad` returns the doer's last attempt either way — on a
+        // spent round budget it records "N rounds spent, last word was again" to the trace and
+        // hands the answer back regardless, which is right, because a triad cannot invent success.
+        // But the caller is given no way to tell the two apart, and the first live run here wrote a
+        // three-times-rejected answer to disk with no mark on it AND journalled the key as done, so
+        // a resume would have skipped that chapter forever.
+        //
+        // Re-asking a verifier that is plain code costs nothing, so that is what this does. Where a
+        // verifier is a model call it would cost one, which is the argument for ratchet returning
+        // the verdict rather than only tracing it. Filed as a gap rather than worked around silently.
+        boolean settled = "done".equals(work.verifier(hero, chapter).run("").trim());
+        System.out.println("── verdict ── " + (settled ? "settled" : "NOT settled — stored as rejected"));
+
         new Reading(who, chapter.book(), slug, want, attempt(records, who, chapter, want),
-                work.body(), paragraphs.size(), paragraphs.size()).append(Path.of("readings"));
+                work.body(), paragraphs.size(), paragraphs.size(), settled).append(Path.of("readings"));
 
         System.out.println("\n── written ──");
         System.out.println("  " + Reading.path(Path.of("readings"), who, chapter.book(), slug, want));

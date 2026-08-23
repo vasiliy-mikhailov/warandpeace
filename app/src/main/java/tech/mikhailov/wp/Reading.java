@@ -29,7 +29,8 @@ import java.util.List;
  * that gets killed leaves a torn last line, and that is the normal case rather than a fault.
  */
 public record Reading(String character, String book, String chapter, String section,
-                      int attempt, String body, int paragraphsRead, int paragraphsTotal) {
+                      int attempt, String body, int paragraphsRead, int paragraphsTotal,
+                      boolean settled) {
 
     /** Where a reading lives. The tree is the filesystem, so a fold is a glob. */
     public static Path path(Path root, String character, String book, String chapter, String section) {
@@ -54,9 +55,18 @@ public record Reading(String character, String book, String chapter, String sect
      * <p>Pass one's gate is that every paragraph was read, and the only honest place for that number
      * is beside what the reading found. Kept separate from the body so a fold can count coverage
      * without parsing what a section happens to hold.
+     *
+     * <p>{@code settled} IS HERE BECAUSE THE FIRST LIVE RUN WROTE A REJECTED ANSWER AS THOUGH IT HAD
+     * PASSED. {@link tech.mikhailov.ratchet.flow.Flow#triad} returns the doer's last attempt when the
+     * round budget runs out and records that it never settled — which is right, since a triad cannot
+     * invent success. What was wrong was downstream: the reading was appended with no mark, and the
+     * journal recorded the key as done, so a resume would skip that chapter forever. A verifier that
+     * fired three times and changed nothing is the shape this whole project exists to argue against,
+     * and it appeared here within an hour of the loop being wired.
      */
     private String line() {
         return "{\"attempt\":" + attempt
+                + ",\"settled\":" + settled
                 + ",\"character\":\"" + character + "\""
                 + ",\"book\":\"" + esc(book) + "\""
                 + ",\"chapter\":\"" + chapter + "\""

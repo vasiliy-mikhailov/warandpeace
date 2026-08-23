@@ -81,7 +81,7 @@ public final class Appearances implements Work {
     public Agent verifier(Chain.Hero hero, Chain.Chapter chapter) {
         return judged -> {
             String verdict = line(said, "VERDICT:").toLowerCase(Locale.ROOT).trim();
-            String evidence = line(said, "EVIDENCE:").trim();
+            String evidence = unquoted(line(said, "EVIDENCE:"));
             if (!VERDICTS.contains(verdict)) {
                 return "again: VERDICT must be exactly one of " + VERDICTS + ", not " + quoted(verdict);
             }
@@ -106,6 +106,28 @@ public final class Appearances implements Work {
         };
     }
 
+    /**
+     * A MATCHED PAIR OF SURROUNDING QUOTES IS A DELIMITER, NOT CONTENT.
+     *
+     * <p>Measured against the live endpoint before this existed: the model answered
+     * {@code EVIDENCE: "As soon as they saw Pierre and his companion"} — correct evidence, quoted
+     * because quoting is the obvious way to mark a span — and the verifier rejected it three times
+     * because the chapter does not contain the quote marks. Worse, the objection then quoted the
+     * quotes back, so the model had nothing to act on and repeated itself until the round budget ran
+     * out. THREE CALLS, NO PROGRESS, and a verifier that was right about nothing that mattered.
+     *
+     * <p>Both kinds, because a model asked for text from Tolstoy will reach for the curly ones.
+     */
+    private static String unquoted(String span) {
+        String trimmed = span.trim();
+        if (trimmed.length() > 1
+                && ((trimmed.startsWith("\"") && trimmed.endsWith("\""))
+                    || (trimmed.startsWith("\u201c") && trimmed.endsWith("\u201d")))) {
+            return trimmed.substring(1, trimmed.length() - 1).trim();
+        }
+        return trimmed;
+    }
+
     private static String line(String from, String label) {
         for (String l : from.split("\\R")) {
             if (l.trim().toUpperCase(Locale.ROOT).startsWith(label)) {
@@ -123,7 +145,7 @@ public final class Appearances implements Work {
     @Override
     public String body() {
         return "{\"verdict\":\"" + line(said, "VERDICT:").trim()
-                + "\",\"evidence\":" + Ask.json(line(said, "EVIDENCE:").trim())
+                + "\",\"evidence\":" + Ask.json(unquoted(line(said, "EVIDENCE:")))
                 + ",\"why\":" + Ask.json(line(said, "WHY:").trim()) + "}";
     }
 }
