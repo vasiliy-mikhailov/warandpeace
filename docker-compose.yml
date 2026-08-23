@@ -29,9 +29,13 @@ services:
     image: warandpeace:latest
     profiles: ["sweep"]
     depends_on: [wp-dash]
+    # NOT `${RATCHET_BASE:?}`. Compose interpolates the WHOLE file before it does anything, so a
+    # required-variable marker here refused to BUILD THE READER — which needs no endpoint at all —
+    # until the sweep's credentials were in the shell. The refusal belongs in the program, and
+    # Extract already makes it with the export line spelled out.
     environment:
-      RATCHET_BASE: "${RATCHET_BASE:?set it, or bridge LLM_BASE_URL in the shell}"
-      RATCHET_MODEL: "${RATCHET_MODEL:?}"
+      RATCHET_BASE: "${RATCHET_BASE:-}"
+      RATCHET_MODEL: "${RATCHET_MODEL:-}"
       RATCHET_KEY: "${RATCHET_KEY:-}"
       RATCHET_THINKING: "${RATCHET_THINKING:-false}"
     volumes:
