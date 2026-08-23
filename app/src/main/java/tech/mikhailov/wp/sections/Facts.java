@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -74,10 +74,10 @@ public final class Facts implements Work {
     private static final String PAIRS = "\"\"''“”‘’«»";
 
     private final Text text;
-    private final ChatModel model;
+    private final Chat model;
     private String said = "";
 
-    public Facts(Text text, ChatModel model) {
+    public Facts(Text text, Chat model) {
         this.text = text;
         this.model = model;
     }

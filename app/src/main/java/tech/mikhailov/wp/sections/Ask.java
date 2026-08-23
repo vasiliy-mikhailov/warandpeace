@@ -1,18 +1,26 @@
 package tech.mikhailov.wp.sections;
 
-import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.model.chat.ChatModel;
-import dev.langchain4j.model.chat.request.ChatRequest;
+import java.util.List;
 
-/** One question, one answer. The retry, the stall guard and the record are ratchet's, not ours. */
+import tech.mikhailov.ratchet.llm.Chat;
+import tech.mikhailov.ratchet.llm.Said;
+
+/**
+ * One question, one answer. The retry, the stall guard and the record are ratchet's, not ours.
+ *
+ * <p>THE FULLY QUALIFIED NAME BELOW IS NOT AN OVERSIGHT. ratchet's request type is also called
+ * {@code Ask}, which is the right name for it and the right name for this too — a helper called
+ * anything else would be a worse name chosen to dodge a collision. One qualified reference in one
+ * file is cheaper than renaming a class eight sections import.
+ */
 public final class Ask {
 
     private Ask() {
     }
 
-    public static String once(ChatModel model, String question) {
-        return model.chat(ChatRequest.builder().messages(UserMessage.from(question)).build())
-                .aiMessage().text().trim();
+    public static String once(Chat model, String question) {
+        return model.answer(tech.mikhailov.ratchet.llm.Ask.of(List.of(Said.user(question))))
+                .said().trim();
     }
 
     /** A JSON string literal. Small enough to write, and the alternative is a dependency. */

@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -90,11 +90,11 @@ public final class Quotes implements Work {
     private static final int OBJECTIONS = 5;
 
     private final Text text;
-    private final ChatModel model;
+    private final Chat model;
     private String said = "";
     private List<List<String>> kept = List.of();
 
-    public Quotes(Text text, ChatModel model) {
+    public Quotes(Text text, Chat model) {
         this.text = text;
         this.model = model;
     }

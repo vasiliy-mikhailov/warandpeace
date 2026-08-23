@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -29,10 +29,10 @@ public final class Appearances implements Work {
     private static final List<String> VERDICTS = List.of("present", "mentioned-only", "absent");
 
     private final Text text;
-    private final ChatModel model;
+    private final Chat model;
     private String said = "";
 
-    public Appearances(Text text, ChatModel model) {
+    public Appearances(Text text, Chat model) {
         this.text = text;
         this.model = model;
     }

@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -56,7 +56,7 @@ public final class Extract {
                 records.resolve("settlements.jsonl"), who);
         Journal journal = new Journal(records.resolve(who + ".journal.jsonl"));
 
-        ChatModel model = Model.forProducer(trace);
+        Chat model = Model.forProducer(trace);
         Work work = sectionFor(want, text, model);
 
         List<String> paragraphs = text.paragraphs(chapter);
@@ -106,7 +106,7 @@ public final class Extract {
      * default throws with the list rather than falling back to something plausible: a typo that
      * silently ran the wrong extractor would write a reading under a section it is not.
      */
-    static Work sectionFor(String stage, Text text, ChatModel model) {
+    static Work sectionFor(String stage, Text text, Chat model) {
         for (Chain.Section section : Chain.Section.values()) {
             if (!section.stage().equals(stage)) {
                 continue;

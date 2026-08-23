@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -39,10 +39,10 @@ public final class Arc implements Work {
     private static final int MIN_WORDS = 3;
 
     private final Text text;
-    private final ChatModel model;
+    private final Chat model;
     private String said = "";
 
-    public Arc(Text text, ChatModel model) {
+    public Arc(Text text, Chat model) {
         this.text = text;
         this.model = model;
     }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -71,10 +71,10 @@ public final class Relationships implements Work {
             "german", "french", "russian", "austrian", "english");
 
     private final Text text;
-    private final ChatModel model;
+    private final Chat model;
     private String said = "";
 
-    public Relationships(Text text, ChatModel model) {
+    public Relationships(Text text, Chat model) {
         this.text = text;
         this.model = model;
     }

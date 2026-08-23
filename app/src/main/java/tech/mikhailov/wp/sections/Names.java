@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import dev.langchain4j.model.chat.ChatModel;
+import tech.mikhailov.ratchet.llm.Chat;
 
 import tech.mikhailov.ratchet.flow.Agent;
 import tech.mikhailov.ratchet.flow.Flow;
@@ -63,12 +63,12 @@ public final class Names implements Work {
     private static final int MOST_OBJECTIONS = 4;
 
     private final Text text;
-    private final ChatModel model;
+    private final Chat model;
     private String said = "";
     private String prose = "";
     private String proseOf = "";
 
-    public Names(Text text, ChatModel model) {
+    public Names(Text text, Chat model) {
         this.text = text;
         this.model = model;
     }
