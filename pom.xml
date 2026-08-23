@@ -10,7 +10,7 @@
   <properties>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <ratchet.version>0.13.0</ratchet.version>
+    <ratchet.version>0.14.0</ratchet.version>
   </properties>
   <dependencies>
     <dependency><groupId>tech.mikhailov.ratchet</groupId><artifactId>ratchet-core</artifactId><version>${ratchet.version}</version></dependency>
