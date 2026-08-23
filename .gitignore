@@ -1,0 +1,9 @@
+.env
+target/
+readings/
+books/
+pages/
+wiki/
+corpus/pg2600.txt
+records/
+cp.txt

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- warandpeace, on ratchet. One module: the flow IS the application. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tech.mikhailov.wp</groupId>
+  <artifactId>warandpeace</artifactId>
+  <version>0.1.0</version>
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <ratchet.version>0.9.0</ratchet.version>
+  </properties>
+  <dependencies>
+    <dependency><groupId>tech.mikhailov.ratchet</groupId><artifactId>ratchet-core</artifactId><version>${ratchet.version}</version></dependency>
+    <dependency><groupId>tech.mikhailov.ratchet</groupId><artifactId>ratchet-llm</artifactId><version>${ratchet.version}</version></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.11.4</version><scope>test</scope></dependency>
+  </dependencies>
+  <build><sourceDirectory>app/src/main/java</sourceDirectory><testSourceDirectory>app/src/test/java</testSourceDirectory>
+    <plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.2.5</version></plugin></plugins>
+  </build>
+</project>

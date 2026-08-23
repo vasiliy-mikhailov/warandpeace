@@ -1,0 +1,627 @@
+{
+  "characters": [
+    {
+      "canonical": "Pierre Bezúkhov",
+      "variants": [
+        "Pierre",
+        "Monsieur Pierre",
+        "the young man (ch XXIV)",
+        "this young Jacobin (ch V, narrator via the vicomte)",
+        "this youth (ch V, the vicomte)",
+        "the orator (ch V)",
+        "his worthy son / the son (ch XXIV, inside Anna Mikháylovna's retelling)",
+        "my dear boy / my dear friend (ch XXIV, Anna Mikháylovna's address)",
+        "my friend (ch XXIV, Prince Vasíli's address)"
+      ],
+      "not_variants": [
+        "\"Count Bezúkhov\" — in chapters I, V and XXI, and in the narration of XXIV (\"Count Bezúkhov's house\", \"Count Bezúkhov's death\"), this ALWAYS denotes Pierre's FATHER, the dying grandee of Catherine's court. Merging the two produces a page that is confidently wrong.",
+        "\"the count\" — 11 occurrences in ch XXI and 2 in ch XXIV, every one of them the father. \"The count made a will\", \"the count's papers\", \"the count is fond of her\" are all the father.",
+        "\"Uncle\" / \"poor Uncle\" (Anna Mikháylovna, ch XXIV) — the father, whom she claims as kin.",
+        "\"the old count\" (ch XXIV, Anna Mikháylovna's retelling) — the father, explicitly contrasted with \"his worthy son\" in the same sentence.",
+        "THE ONE EXCEPTION, and it is a forecast, not a naming: inside Prince Vasíli's speech at ch XXI i54, \"Pierre will not be Pierre but will become Count Bezúkhov.\" That is the only place in these four chapters where the string points at Pierre, and it is conditional on a letter that may have been destroyed.",
+        "\"Borís\" (ch XXIV) — Anna Mikháylovna's son, the other young man with a claim on the dead count, not Pierre.",
+        "\"Prince Andrew\" / \"the prince\" — Pierre's ally at the soirée, a different man; Pierre holds no title in these chapters."
+      ],
+      "who": "The illegitimate son of the dying Count Bezúkhov: a spectacled, blurting young Bonapartist at Anna Pávlovna's soirée in July 1805, and by the end of ch XXIV the silent, uncomprehending object of a fight over the will that is expected to make him one of the richest men in Russia.",
+      "lines": 12,
+      "timeline": [
+        "Ch V — Wants to make a remark because the conversation interests him, but Anna Pávlovna, who has him under observation, cuts him off before he can start.",
+        "Ch V — Breaks in anyway, blushing, to say almost all the French aristocracy has gone over to Bonaparte; the vicomte answers him without looking at him.",
+        "Ch V — Declares the execution of the Duc d'Enghien a political necessity and Napoleon great-souled for shouldering the responsibility. Anna Pávlovna whispers \"Dieu! Mon Dieu!\" in terror, the little princess asks whether assassination shows greatness of soul, several voices exclaim, and Prince Hippolyte slaps his knee: \"Capital!\"",
+        "Ch V — Looks solemnly at his audience over his spectacles and presses on: the Bourbons left the people to anarchy, Napoleon alone understood the Revolution and quelled it.",
+        "Ch V — Twice refuses Anna Pávlovna's offered escape to \"the other table\", growing more eager, and pushes further: \"The Revolution was a grand thing!\" — betraying, the narrator says, his extreme youth and his wish to say everything in his mind.",
+        "Ch V — Not knowing whom to answer, he looks at them all and smiles; the narrator stops for the set-piece about that smile — grave, even gloomy, replaced instantaneously by a childlike, kindly, rather silly look that seems to ask forgiveness. The vicomte, meeting him for the first time, sees this young Jacobin is not so terrible as his words.",
+        "Ch V — Prince Andrew comes to his rescue (\"How do you expect him to answer you all at once?\"); Pierre chimes in, pleased at the reinforcement. Andrew, having wished to tone down the awkwardness of Pierre's remarks, rises to leave, and Hippolyte's Moscow anecdote is used by the room to bury the outburst.",
+        "Ch XXI — Absent, but the whole chapter is about him: Prince Vasíli tells Catiche he has sent for Pierre at the dying count's own demand, that last winter's will leaves everything to Pierre, and that an unsent letter asks the Emperor to legitimize him. Catiche's answer is that Pierre is illegitimate — \"un bâtard!\" — and cannot inherit.",
+        "Ch XXIV — Arrives in the reception room with Anna Mikháylovna. Prince Vasíli and the eldest princess fall silent; Pierre thinks he sees the princess hide something. Vasíli says nothing to him, only squeezing his arm below the shoulder.",
+        "Ch XXIV — In the small circular drawing room he remembers sitting there during balls, not knowing how to dance, watching ladies multiplied in the mirrors; now two candles, whispering strangers, and he does not eat although he would very much have liked to.",
+        "Ch XXIV — Sees his \"monitress\" go back on tiptoe to the reception room, concludes that this too is essential, and follows after a short interval.",
+        "Ch XXIV — Called into the fight as a witness (\"Pierre, my dear, come here... I think he will not be out of place in a family consultation\"), he comes quite close and gazes in astonishment at the princess' face, which has lost all dignity, and at Prince Vasíli's twitching cheeks. He says nothing — he speaks not one line in this chapter.",
+        "Ch XXIV — The eldest princess comes out of the bedroom, sees him, and turns on him with irrepressible hatred: \"Yes, now you may be glad! This is what you have been waiting for.\"",
+        "Ch XXIV — Prince Vasíli staggers out, drops onto the sofa beside him, takes him by the elbow and weeps about sin, deceit and death, with a sincerity and weakness Pierre had never heard in his voice before.",
+        "Ch XXIV — Anna Mikháylovna comes out last, kisses his forehead, wets him with her tears and tells him \"He is no more.\" She leads him into the dark drawing room, where he is glad no one can see his face, and returns to find him asleep with his head on his arm.",
+        "Ch XXIV — In the morning she tells him he is young and now, she hopes, in command of an immense fortune — but that the will has NOT yet been opened — and asks him to carry out his father's wish about Borís. Pierre is silent, understands nothing of it, colors shyly and looks at her without a word."
+      ],
+      "speaks_with": [
+        "the Vicomte de Mortemart (ch V, the running argument)",
+        "Anna Pávlovna Schérer (ch V, she interrupts and attacks him)",
+        "Prince Andrew Bolkónski (ch V, his only ally)",
+        "the little princess (ch V, she challenges him)",
+        "Prince Hippolyte (ch V, jeers at him rather than converses)",
+        "ADDRESSED BY BUT NEVER ANSWERS in ch XXIV: Anna Mikháylovna Drubetskáya, Prince Vasíli Kurágin, Princess Catherine Semënovna"
+      ]
+    },
+    {
+      "canonical": "Anna Pávlovna Schérer",
+      "variants": [
+        "Anna Pávlovna",
+        "Annette (Prince Vasíli's address, ch I)",
+        "Annette Schérer (her signature on the written invitation, ch I)",
+        "the maid of honor",
+        "madame (the vicomte's address, ch V)",
+        "our hostess / their hostess (ch V)",
+        "my dear Monsieur Pierre's interlocutor — narratively \"the hostess\""
+      ],
+      "not_variants": [
+        "\"the elderly lady\" (ch V) — the same sentence lists her separately: \"Several persons, among them the elderly lady and Anna Pávlovna, did however smile.\" A different woman. (The corpus identifies the elderly lady as Princess Drubetskáya in ch IV, which is outside this four-chapter set.)",
+        "\"the lady\" (ch XXI i2, the woman questioning the old priest) — an unnamed guest at the Bezúkhov deathbed. Anna Pávlovna does not appear in ch XXI or ch XXIV at all.",
+        "\"the little princess\", \"the princess\", \"the eldest princess\", \"the second princess\" — every one of these is a different woman.",
+        "\"the Empress Márya Fëdorovna\" / \"the Dowager Empress\" / \"Her Majesty\" / \"my illustrious patroness\" — her patron, not her.",
+        "\"Princess Mary Bolkónskaya\" — the girl she is trying to marry off, not herself."
+      ],
+      "who": "Maid of honor and favorite of the Dowager Empress Márya Fëdorovna, a forty-year-old St Petersburg hostess whose professional enthusiasm runs the soirée of July 1805 and whose side-business is matchmaking.",
+      "lines": 31,
+      "timeline": [
+        "Ch I — July 1805. Suffering, as she says, from la grippe (a new word in St Petersburg, used only by the elite), she has sent out French invitations by scarlet-liveried footman that morning, signed \"Annette Schérer.\"",
+        "Ch I — Greets Prince Vasíli Kurágin, the first to arrive, with an attack on Buonaparte, Genoa and Lucca, and a threat to stop being his friend.",
+        "Ch I — The narrator fixes her: despite her forty years she overflows with animation and impulsiveness; being an enthusiast has become her social vocation, and she performs it even when she does not feel like it, to avoid disappointing expectations.",
+        "Ch I — Bursts out mid-politics with the tirade on Austria's betrayal, Russia alone saving Europe, and the sovereign crushing the hydra of revolution — then suddenly pauses, smiling at her own impetuosity.",
+        "Ch I — Advertises the evening's catches: le Vicomte de Mortemart, one of the genuine émigrés, and the Abbé Morio.",
+        "Ch I — Refuses to criticize the Empress' wish about Baron Funke, almost closing her eyes; as she names the Empress her face assumes profound devotion mingled with sadness, as it does every time.",
+        "Ch I — With courtierlike quickness, rebukes and consoles Vasíli in one move: praises his daughter's coming out, then says she does not like Anatole and that he was mentioned at Her Majesty's and Vasíli was pitied.",
+        "Ch I — Proposes the match that starts the novel's marriage plot: Anatole to Princess Mary Bolkónskaya, whose father is rich, stingy, eccentric and nicknamed \"the King of Prussia.\" She mentions in passing that Mary's brother, married to Lise Meinen and an aide-de-camp of Kutúzov's, will be there tonight.",
+        "Ch I — Has her hand kissed and swung to and fro; answers \"Attendez\" and promises to speak to Lise that very evening, calling it her apprenticeship as old maid.",
+        "Ch V — Opens the Napoleon argument as hostess, mocking the Milan coronation and hoping this is the last drop that makes the glass run over.",
+        "Ch V — Keeps Pierre under observation and interrupts him, speaking for the Emperor Alexander with the melancholy she reserves for the Imperial family, and trying to be amiable to the royalist émigré.",
+        "Ch V — Horror-struck at Pierre's defence of the Duc's execution; mutters \"Dieu! Mon Dieu!\" in a terrified whisper and finds she cannot stop him.",
+        "Ch V — Twice offers Pierre the diplomatic exit of \"the other table\"; twice ignored.",
+        "Ch V — Seeing that Pierre's sacrilegious words have not exasperated the vicomte, she rallies her forces and joins the vicomte in a vigorous attack on the orator.",
+        "Ch V — Smiles at Hippolyte's unintelligible anecdote and, with the others, appreciates his social tact in so agreeably ending Pierre's unpleasant outburst."
+      ],
+      "speaks_with": [
+        "Prince Vasíli Kurágin (ch I — the entire chapter is their tête-à-tête)",
+        "Pierre (ch V, adversarially)",
+        "the Vicomte de Mortemart (ch V, as his ally)",
+        "Prince Andrew Bolkónski (ch V, he answers her opening)",
+        "Prince Hippolyte (ch V, as audience for his anecdote)"
+      ]
+    },
+    {
+      "canonical": "Prince Vasíli Kurágin",
+      "variants": [
+        "Prince Vasíli",
+        "the prince (ch I and ch XXI tags)",
+        "cousin / mon cousin (Catiche's address for him, ch XXI, ch XXIV)",
+        "your faithful slave / your most devoted slave (his own epithet for himself, ch I)",
+        "Prince (Anna Mikháylovna's address, ch XXIV)"
+      ],
+      "not_variants": [
+        "\"Prince Bolkónski\" (ch I) and \"young Bolkónski\" (ch I) — the Bolkónski father and son; Vasíli is a Kurágin.",
+        "\"Prince Andrew\" and \"Prince Hippolyte\" (ch V) — Vasíli does not appear in ch V at all, so no \"prince\" tag in that chapter is his. Prince Hippolyte is his own son, and the two must not be collapsed.",
+        "\"Count Bezúkhov\" / \"the count\" — the dying man whose estate he is working on; Vasíli is a prince, and his claim runs through his wife, one of the direct heirs.",
+        "\"Catiche\" / \"my dear\" / \"my poor Catiche\" / \"my dear Princess Catherine Semënovna\" — these are HIS forms of address for the eldest princess. In the long untagged stretches of ch XXI this address asymmetry (he says Catiche, she says mon cousin) is the only thing distinguishing the two speakers.",
+        "\"the Military Governor of Moscow\" (ch XXI) — the visitor Vasíli escorts to the door, described as over sixty; not Vasíli, who is \"getting on for sixty\" himself."
+      ],
+      "who": "A high-ranking, languid court official who speaks like an actor repeating a stale part, and who spends these chapters working two schemes: a post at Vienna and a rich wife for his sons, and the suppression of the will that would give the Bezúkhov fortune to Pierre.",
+      "lines": 67,
+      "timeline": [
+        "Ch I — Arrives first at Anna Pávlovna's reception in embroidered court uniform, knee breeches and shoes, stars on his breast, and complacently seats himself on the sofa after kissing her hand.",
+        "Ch I — Says he must appear at the English ambassador's fete; his daughter is coming to fetch him. He flatters by reflex, \"like a wound-up clock,\" saying things he does not even wish to be believed.",
+        "Ch I — Asks with studied carelessness whether the Dowager Empress wants Baron Funke as first secretary at Vienna. The narrator immediately exposes it: this was the chief motive of the visit, and Vasíli wants the post for his son. He is rebuffed and falls silent, looking indifferent.",
+        "Ch I — Admits his sons are the bane of his life: \"Hippolyte is at least a quiet fool, but Anatole is an active one,\" said with a smile that reveals something unexpectedly coarse round his mouth. Anatole costs him forty thousand rubles a year.",
+        "Ch I — Hears the Bolkónskaya proposal, indicates by a movement of the head that he is considering it, asks only whether she is rich, then takes Anna Pávlovna's hand and bends it downwards as is his habit: \"Arrange that affair for me... She is rich and of good family and that's all I want.\"",
+        "Ch XXI — At the Bezúkhov deathbed, grown thinner and paler over the last few days, he escorts the Military Governor of Moscow to the door, repeating something to him several times in low tones.",
+        "Ch XXI — Alone in the ballroom he sits with his face covered by his hand, then rises, looks about him with frightened eyes, and goes with unusually hurried steps down the long corridor to the room of the eldest princess.",
+        "Ch XXI — In her dark room he takes the chair she has just vacated. His cheeks begin to twitch nervously, giving his face an expression never seen on it in a drawing room; his eyes look impudently sly one moment and glance round in alarm the next.",
+        "Ch XXI — Lays out the arithmetic: the three sisters, Mámontov and his wife are the count's only direct heirs; he is getting on for sixty and must be prepared for anything; he has sent for Pierre because the count demanded it.",
+        "Ch XXI — Reveals the winter will leaving everything to Pierre, and the letter to the Emperor asking for Pierre's legitimation — written, not sent, and known to the Emperor. He cites the family solicitor Dmítri Onúfrich for confirmation.",
+        "Ch XXI — Presses her hard: seizes her hand, pulls the little table angrily back, holds her fast when she twice tries to rise, flatters her \"excellent heart,\" insists he came simply to help the count and her.",
+        "Ch XXI — Gets exactly what he came for: the paper is in the inlaid portfolio the dying man keeps under his pillow.",
+        "Ch XXIV — Discovered in the reception room with the eldest princess under the portrait of Catherine the Great, talking eagerly; they fall silent when Pierre appears. He sends Anna Mikháylovna off to tea and says nothing at all to Pierre.",
+        "Ch XXIV — Sits through the women's fight in his familiar attitude, one leg crossed high, wearing the air of a man little concerned in what the two ladies are saying, while his flabby cheeks twitch violently.",
+        "Ch XXIV — Rises at last: \"this is absurd! Come, let go I tell you.\" The princess obeys, Anna Mikháylovna does not. He offers to take the responsibility and go ask the dying man himself, then warns her she will answer for the consequences.",
+        "Ch XXIV — Bends his head and spreads out his hands when the princess snatches the portfolio; when Anna Mikháylovna carries it into the bedroom, he and the eldest princess recover themselves and follow.",
+        "Ch XXIV — Comes out after the death, staggers to the sofa, drops onto it beside Pierre, pale, his jaw shaking as if in an ague, and weeps: \"How often we sin, how much we deceive, and all for what? I am near sixty... Death is awful.\"",
+        "Ch XXIV — Afterwards Anna Mikháylovna speaks disapprovingly of his behavior, and of the eldest princess', to the Rostóvs — but in whispers and as a great secret."
+      ],
+      "speaks_with": [
+        "Anna Pávlovna Schérer (ch I)",
+        "Princess Catherine Semënovna / Catiche (ch XXI, the whole duel; ch XXIV)",
+        "Anna Mikháylovna Drubetskáya (ch XXIV)",
+        "Pierre (ch XXIV, one-way — squeezes his arm in silence, later weeps at him)",
+        "the Military Governor of Moscow (ch XXI, narrated, no quoted words)"
+      ]
+    },
+    {
+      "canonical": "Prince Andrew Bolkónski",
+      "variants": [
+        "Prince Andrew",
+        "young Bolkónski (ch I, in \"Lise, young Bolkónski's wife\")",
+        "\"a brother\" of Princess Mary, \"an aide-de-camp of Kutúzov's\" (ch I, how the chapter introduces him without naming him)"
+      ],
+      "not_variants": [
+        "\"Prince Bolkónski\" (ch I) — his FATHER, the well-known old prince who had to retire from the army under the late Emperor and was nicknamed \"the King of Prussia,\" very rich, stingy, eccentric and a bore, living in the country. The bare surname in ch I is the father, never the son; only the qualified \"young Bolkónski\" is Andrew.",
+        "\"Princess Mary Bolkónskaya\" (ch I) — his sister, the unhappy girl proposed as Anatole's bride.",
+        "\"Bolkónskaya\" in the sense of \"young Bolkónski's wife\" — Lise, the little princess.",
+        "\"the prince\" tags in ch I and ch XXI — Prince Vasíli. Andrew appears in neither chapter.",
+        "\"Prince Hippolyte\" (ch V) — the other titled young man in the room; ch V's \"Prince Andrew\" tags are all his own.",
+        "\"Monsieur le Vicomte\" — the man he refers to in the third person, which is itself the proof he is not the vicomte.",
+        "\"Napoleon\" / \"Bonaparte\" — he speaks Napoleon's words aloud in French and Italian at ch V i3, i21 and i22; the speaker of those lines is Andrew, not Napoleon."
+      ],
+      "who": "Kutúzov's aide-de-camp, recently married to Lise Meinen, who spends the soirée quoting Napoleon at the room with a sarcastic smile and then rescues Pierre from it.",
+      "lines": 10,
+      "timeline": [
+        "Ch I — Present only by report: Anna Pávlovna mentions Princess Mary's brother, who married Lise Meinen lately, is an aide-de-camp of Kutúzov's, and will be at the soirée tonight. He is never named in this chapter.",
+        "Ch V — Looks Anna Pávlovna straight in the face with a sarcastic smile and repeats Napoleon's \"Dieu me la donne, gare à qui la touche!\", then the same words in Italian.",
+        "Ch V — Contradicts his hostess: matters have gone too far and it will be difficult to return to the old regime — pointedly crediting \"Monsieur le Vicomte\" for the observation.",
+        "Ch V — The narrator notes it is evident he does not like the vicomte and is aiming his remarks at him, though without looking at him; he quotes Napoleon again: \"I showed them the path to glory, but they did not follow it.\"",
+        "Ch V — Keeps looking with an amused smile from Pierre to the vicomte and from the vicomte to their hostess while the attack on Pierre builds.",
+        "Ch V — Intervenes for Pierre: \"How do you expect him to answer you all at once?\" and offers the distinction that saves the argument — a statesman's acts as private person, as general, and as emperor must be judged separately. He grants Napoleon the bridge of Arcola and the plague hospital at Jaffa, but not everything.",
+        "Ch V — Having evidently wished to tone down the awkwardness of Pierre's remarks, he rises and makes a sign to his wife that it is time to go — the exit Hippolyte's anecdote then delays."
+      ],
+      "speaks_with": [
+        "Anna Pávlovna Schérer (ch V, he answers her opening)",
+        "the Vicomte de Mortemart (ch V, obliquely — aiming remarks at him without looking at him)",
+        "Pierre (ch V, his only defender)",
+        "the little princess, his wife (ch V — a wordless sign, no speech between them in these chapters)"
+      ]
+    },
+    {
+      "canonical": "Princess Anna Mikháylovna Drubetskáya",
+      "variants": [
+        "Anna Mikháylovna",
+        "Princess Drubetskáya",
+        "Princess Anna Mikháylovna",
+        "\"that protégé of yours, that sweet Princess Drubetskáya\" (Catiche, ch XXI)",
+        "\"that woman\" / \"that vile woman\" / \"Vile woman!\" / \"Intriguer!\" (Catiche's names for her)",
+        "\"the latter\" (ch XXIV, during the struggle)",
+        "\"my poor Anna Mikháylovna\" (Prince Vasíli's address)",
+        "Pierre's \"monitress\" (ch XXIV, the narrator's word)"
+      ],
+      "not_variants": [
+        "\"the princess\" — in ch XXIV BOTH women in the fight are princesses, but every bare \"the princess\" tag in that chapter is Catiche, the eldest. Anna Mikháylovna is always named, or called \"the latter\" or \"the elderly one.\" A wiki that reads \"the princess\" as Anna Mikháylovna in ch XXIV inverts the whole scene.",
+        "\"the younger of the two speakers\" / \"the younger of the two ladies\" (ch XXIV) — Catiche. Anna Mikháylovna is the elder of the pair, which is what makes the phrase resolve.",
+        "\"the eldest princess\" / \"the second princess\" / \"the second of the three sisters\" — the Bezúkhov sisters, her enemies.",
+        "\"Princess Mary Bolkónskaya\" and \"the little princess\" — other princesses entirely.",
+        "\"Borís\" — her son, whose interests she is pressing; not her.",
+        "\"Uncle\" / \"poor Uncle\" — how she refers to the dying Count Bezúkhov.",
+        "\"the elderly lady\" (ch V) — the corpus identifies the elderly lady at the soirée as a Princess Drubetskáya in ch IV, but that identification lies OUTSIDE these four chapters. Within this set she has no line and no confirmed presence in ch V; treat any such link as imported, not established."
+      ],
+      "who": "An impoverished, honey-voiced princess who attaches herself to the dying Count Bezúkhov as his kinswoman, steers Pierre through the deathbed, and wins the physical fight for the portfolio containing the will.",
+      "lines": 13,
+      "timeline": [
+        "Ch XXI — Absent but denounced: Catiche names her to Prince Vasíli as \"that protégé of yours... the infamous, vile woman\" who wheedled herself into the house last winter and told the count such disgraceful things about the sisters, especially Sophie, that he would not see them for a fortnight — which is when, Catiche believes, he wrote the will.",
+        "Ch XXIV — Enters the reception room with Pierre; the princess whispers \"I can't bear the sight of that woman,\" and Prince Vasíli sends her off to tea: \"Go and take something, my poor Anna Mikháylovna, or you will not hold out.\"",
+        "Ch XXIV — Takes Pierre to the small drawing room, then goes back on tiptoe to the reception room, where she and the princess stand speaking in excited whispers.",
+        "Ch XXIV — Blocks the way to the bedroom, blandly but impressively, on the ground that worldly conversation would be too much for poor Uncle when his soul is already prepared.",
+        "Ch XXIV — When the princess tries to pass, she springs to bar her path and seizes the inlaid portfolio so firmly it is plain she will not let go easily, begging \"Je vous en conjure.\" Through the struggle her voice loses none of its honeyed firmness and softness.",
+        "Ch XXIV — Calls Pierre over as a witness: \"I think he will not be out of place in a family consultation; is it not so, Prince?\"",
+        "Ch XXIV — Refuses Prince Vasíli's order to let go, and is warned she will answer for the consequences; the princess darts at her, shrieks \"Vile woman!\" and snatches the portfolio away.",
+        "Ch XXIV — When Olga bursts out of the bedroom and her sister drops the portfolio, Anna Mikháylovna stoops, quickly catches up the object of contention, and runs into the bedroom with it. She wins.",
+        "Ch XXIV — Comes out last, with slow quiet steps, kisses Pierre on the forehead, wets him with her tears, and tells him \"He is no more.\" She leads him into the dark drawing room and leaves him there; when she returns he is asleep.",
+        "Ch XXIV — In the morning she tells Pierre he is now, she hopes, in command of an immense fortune, that the will has not yet been opened, and that Uncle promised her only the day before yesterday not to forget Borís but had no time — asking Pierre to carry out his father's wish.",
+        "Ch XXIV — Returns to the Rostóvs', goes to bed, and on waking tells them and all her acquaintances an edifying version of the count's death and of the touching last meeting between father and son. Of the behavior of the eldest princess and Prince Vasíli she speaks disapprovingly, but in whispers and as a great secret."
+      ],
+      "speaks_with": [
+        "Princess Catherine Semënovna / Catiche (ch XXIV, the fight)",
+        "Prince Vasíli Kurágin (ch XXIV)",
+        "Pierre (ch XXIV — she does nearly all the talking; he answers nothing)",
+        "the Rostóvs and all her acquaintances (ch XXIV, narrated retelling with one quoted sentence)"
+      ]
+    },
+    {
+      "canonical": "Princess Catherine Semënovna",
+      "variants": [
+        "Catiche (Prince Vasíli's address; footnoted \"*Catherine.\")",
+        "the princess (every bare tag in ch XXIV, and all of ch XXI from i22 on)",
+        "the eldest princess",
+        "the eldest sister",
+        "\"my dear princess and cousin, Catherine Semënovna\" (Prince Vasíli, ch XXI)",
+        "\"my dear\" / \"my poor Catiche\" (Prince Vasíli's addresses)",
+        "\"the younger of the two speakers\" / \"the younger of the two ladies\" (ch XXIV, younger than Anna Mikháylovna)",
+        "\"my dear, kind princess\" / \"Dear princess\" (Anna Mikháylovna's address)"
+      ],
+      "not_variants": [
+        "\"the second princess\" (ch XXI) and \"the second of the three sisters\" (ch XXIV) — her MIDDLE sister, who nurses the dying count. In ch XXI both women are tagged simply \"the princess\": i10, i11 and i13 belong to the second princess in the reception room, everything from i22 onward to Catiche alone in her room at the back of the house. Merging them costs three quotes at no visible cost to a model's confidence.",
+        "\"Sophie\" — the youngest sister, the one the count was told vile things about.",
+        "\"Anna Mikháylovna\" / \"Princess Drubetskáya\" — her enemy, also a princess, also in the room in ch XXIV.",
+        "\"the little princess\" (ch V) and \"Princess Mary Bolkónskaya\" (ch I) — unrelated princesses in other chapters.",
+        "\"Catherine\" as in \"the portrait of Catherine\" (ch XXI) and \"the portrait of Catherine the Great\" (ch XXIV) — the Empress in the painting on the wall, not this Catherine, despite the translator's footnote glossing Catiche as \"Catherine.\"",
+        "\"mon cousin\" — HER address for Prince Vasíli, not a name for her."
+      ],
+      "who": "The eldest of the three Bezúkhov nieces, stonily severe, straight-backed and varnish-smooth, who knows where the will is and loses it in a physical fight on the threshold of her uncle's death chamber.",
+      "lines": 38,
+      "timeline": [
+        "Ch XXI — Found in her own almost dark room at the back of the house: two tiny lamps before the icons, a scent of flowers and burnt pastilles, crowded whatnots and little tables, a high white feather bed behind a screen, and a small dog that begins to bark.",
+        "Ch XXI — Prince Vasíli opens the door; she rises and smooths hair so extremely smooth it seems made of one piece with her head and covered with varnish, and asks in fear whether anything has happened.",
+        "Ch XXI — Sits down opposite him with her unchanging stonily severe expression, holding the little dog on her lap with thin bony hands, resolved not to be the first to break silence if she has to wait till morning; the narrator gives her a straight rigid body abnormally long for her legs and prominent gray eyes with no sign of emotion.",
+        "Ch XXI — Meets the inheritance argument with piety and then with law: \"He has made wills enough! But he cannot leave the estate to Pierre. Pierre is illegitimate\" — and, smiling as people do who think they know more than their interlocutor, \"un bâtard!\"",
+        "Ch XXI — When Vasíli produces the letter to the Emperor and the solicitor's opinion, a sudden change takes place in her ideas: her thin lips grow white, her voice passes through transitions she herself evidently did not expect, and she pushes the little dog off her lap.",
+        "Ch XXI — Erupts about ingratitude — \"meanness, deceit, envy, intrigue, and ingratitude—the blackest ingratitude—in this house\" — twice tries to rise, and is twice held fast by the hand.",
+        "Ch XXI — Names the intriguer: Anna Mikháylovna, whom she would not take for a housemaid, who last winter told the count vile things about them, especially about Sophie, and made him ill.",
+        "Ch XXI — Gives up the location: \"It's in the inlaid portfolio that he keeps under his pillow,\" said while ignoring Vasíli's question about why she did not say so sooner, then almost shrieks that if she has a great sin it is hatred of that vile woman.",
+        "Ch XXIV — Sitting with Prince Vasíli under the portrait of Catherine the Great, talking eagerly; they break off when Pierre enters, and Pierre thinks he sees her hide something as she whispers \"I can't bear the sight of that woman.\"",
+        "Ch XXIV — Has had tea served in the small drawing room (reported by Vasíli), then comes out with the inlaid portfolio in her hand, in the same state of excitement as when she slammed the door of her room, claiming the real will is in the writing table and this is only a paper he has forgotten.",
+        "Ch XXIV — Fights Anna Mikháylovna for the portfolio; shrieks at her silent cousin so loudly that the drawing room hears — \"Why do you remain silent when heaven knows who permits herself to interfere... Intriguer!\" — and tugs with all her might.",
+        "Ch XXIV — Obeys Prince Vasíli's \"let go\" and then breaks: darts unexpectedly at Anna Mikháylovna, shouts \"Vile woman!\" and snatches the portfolio back — only to drop it when her sister bursts out of the bedroom.",
+        "Ch XXIV — Follows the others into the bedroom and comes out a few minutes later with a pale hard face, again biting her underlip. At the sight of Pierre her expression shows an irrepressible hatred: \"Yes, now you may be glad! This is what you have been waiting for.\" She bursts into tears, hides her face in her handkerchief and rushes from the room."
+      ],
+      "speaks_with": [
+        "Prince Vasíli Kurágin (ch XXI, the entire duel; ch XXIV)",
+        "Anna Mikháylovna Drubetskáya (ch XXIV)",
+        "Pierre (ch XXIV — one line, hurled at him; he does not reply)"
+      ]
+    },
+    {
+      "canonical": "Count Bezúkhov (Pierre's father)",
+      "variants": [
+        "Count Bezúkhov",
+        "the count",
+        "the dying man / the sick man",
+        "the celebrated grandee of Catherine's court",
+        "\"poor Uncle\" / \"Uncle\" (Anna Mikháylovna)",
+        "\"the old count\" / \"the father\" (ch XXIV, in Anna Mikháylovna's retelling)",
+        "\"your father\" (addressed to Pierre)"
+      ],
+      "not_variants": [
+        "\"Pierre\" / \"Monsieur Pierre\" — his illegitimate son, a separate person throughout. This is the single most damaging merge available in these four chapters.",
+        "\"Count Bezúkhov\" as used at ch XXI i54 inside Prince Vasíli's speech (\"Pierre will not be Pierre but will become Count Bezúkhov\") — a forecast about the son, the one occurrence of the string that does not denote the father.",
+        "\"Prince Vasíli\" — a prince, not the count; his claim on the estate runs through his wife.",
+        "\"the Military Governor of Moscow\" (ch XXI) — the visitor who spends half an hour alone with him and is described as over sixty and young-looking.",
+        "\"Dr. Lorrain\" / \"a German doctor\" — the physicians attending him."
+      ],
+      "who": "The dying grandee of Catherine's court whose sixth stroke, will and unsent letter of legitimation drive chapters XXI and XXIV, and who never speaks a single line in any of the four chapters.",
+      "lines": 0,
+      "timeline": [
+        "Ch XXI — Has a sixth stroke while the sixth anglaise is being danced in the Rostóvs' ballroom; the doctors pronounce recovery impossible.",
+        "Ch XXI — After a mute confession, communion is administered and preparations are made for the sacrament of unction; his house fills with the bustle and thrill of suspense usual at such moments, and undertakers wait beyond the gates, hiding whenever a carriage drives up, in expectation of an order for an expensive funeral.",
+        "Ch XXI — The Military Governor of Moscow, who has been sending aides-de-camp to inquire, comes in person and stays about half an hour alone with him before leaving. It is said in the room that the count no longer recognizes anyone.",
+        "Ch XXI — Established by report: last winter he made a will leaving all his property to Pierre rather than to his direct heirs, and wrote — but did not send — a letter to the Emperor asking for Pierre's legitimation; he demanded that Pierre be called; and he keeps an inlaid portfolio under his pillow.",
+        "Ch XXI — Dr. Lorrain, asked whether he can last till morning, waves a severely negative finger and answers \"Tonight, not later.\"",
+        "Ch XXIV — Dies offstage during the fight over the portfolio; Anna Mikháylovna announces it to Pierre with \"He is no more....\"",
+        "Ch XXIV — Is posthumously turned into an edifying anecdote: Anna Mikháylovna tells the Rostóvs and all her acquaintances that he died as she would herself wish to die, and describes a touching last meeting between father and son in which he remembered everybody at last and spoke pathetic words to Pierre. No such scene is narrated anywhere in these chapters."
+      ],
+      "speaks_with": []
+    },
+    {
+      "canonical": "Vicomte de Mortemart",
+      "variants": [
+        "the vicomte",
+        "le Vicomte de Mortemart (ch I, Anna Pávlovna's announcement)",
+        "Vicomte (Prince Hippolyte's address, ch V)",
+        "\"the royalist emigrant\" / \"one of the genuine émigrés, the good ones\"",
+        "\"Monsieur le Vicomte\" (Prince Andrew's third-person reference)"
+      ],
+      "not_variants": [
+        "\"an ironical voice\" (ch V i42) — the gold leaves this UNKNOWN. He is the leading inference, and two of three annotation passes guessed him, but the text withholds the name and Anna Pávlovna had just used the word \"regicide\" herself. Do not fold this line into his record.",
+        "\"exclaimed several voices\" (ch V i30) — a collective, unnamed reaction.",
+        "\"Monsieur Pierre\" / \"monsieur\" / \"this youth\" — Pierre, his opponent, referred to in the third person inside his own speeches.",
+        "\"the Duc\" / \"the Duc d'Enghien\", \"Louis XVII\", \"the Queen\", \"Madame Elizabeth\" — the Bourbons he is mourning, not himself.",
+        "\"the elderly lady\" — a different guest.",
+        "The surname: \"Mortemart\" occurs only in ch I. Chapter V never gives him a surname at all, so any \"Mortemart\" tag inside ch V is imported."
+      ],
+      "who": "The émigré catch of Anna Pávlovna's evening, connected with the Montmorencys through the Rohans, who carries the royalist side of the Napoleon argument against Pierre.",
+      "lines": 16,
+      "timeline": [
+        "Ch I — Announced in advance by Anna Pávlovna as one of two very interesting men expected tonight: connected with the Montmorencys through the Rohans, one of the best French families, and one of the genuine émigrés, the good ones.",
+        "Ch V — Answers Anna Pávlovna about the sovereigns, polite but hopeless, and becomes more animated over what they have done for Louis XVII, the Queen and Madame Elizabeth: nothing. He sighs disdainfully and again changes his position.",
+        "Ch V — Follows the current of his own thoughts, in the manner of a man who knows a subject better than anyone and does not listen to others: another year of Buonaparte and good French society will have been forever destroyed. He shrugs and spreads out his hands.",
+        "Ch V — Replies to Pierre without looking at him, and delivers the epigram the room is about to applaud: after the murder of the duc there was one martyr more in heaven and one hero less on earth.",
+        "Ch V — Merely shrugs at Pierre's defence of the execution, then needles him with a tolerant smile (\"Rousseau's Contrat Social\").",
+        "Ch V — Decides at last to prove seriously to this youth how foolish his words are: liberty and equality are high-sounding words long discredited; even our Saviour preached them; people have not become happier since the Revolution.",
+        "Ch V — Meeting Pierre for the first time, he sees clearly that this young Jacobin is not so terrible as his words suggested; all fall silent.",
+        "Ch V — Joins the general attack with the question about the 18th Brumaire: was it not an imposture, a swindle, not at all like the conduct of a great man?"
+      ],
+      "speaks_with": [
+        "Pierre (ch V, the central argument)",
+        "Anna Pávlovna Schérer (ch V, his ally and hostess)",
+        "Prince Andrew Bolkónski (ch V, who dislikes him and aims remarks at him)",
+        "Prince Hippolyte (ch V, addressed as \"Vicomte\" before the anecdote)"
+      ]
+    },
+    {
+      "canonical": "Prince Hippolyte",
+      "variants": [
+        "Prince Hippolyte",
+        "Hippolyte (ch I, in his father's mouth: \"Hippolyte is at least a quiet fool\")",
+        "\"the narrator\" (ch V, during his anecdote)"
+      ],
+      "not_variants": [
+        "\"Prince Vasíli\" / \"the prince\" (ch I, ch XXI) — his father. Every \"prince\" tag in ch I is Vasíli, and Hippolyte is only mentioned there.",
+        "\"Prince Andrew\" (ch V) — the other prince in the room.",
+        "\"Anatole\" — his brother, the \"active\" fool to his \"quiet\" one.",
+        "\"his son\" in ch I (\"Prince Vasíli wished to obtain this post for his son\") — the chapter never says WHICH son the Vienna post is for. Do not assert Hippolyte from these four chapters.",
+        "\"une dame\" / \"the lady\" / \"Girl\" / the lady's maid inside his Moscow anecdote — characters in his story. The speaker of ch V i59, including the quoted \"'Girl,' ... 'put on a livery...'\", is Hippolyte the teller.",
+        "The surname: \"Kurágin\" is never attached to him in any of these four chapters; it is inferred from his father."
+      ],
+      "who": "Prince Vasíli's quiet fool of a son, who traces heraldry on the table with a needle and rescues the soirée with an unintelligible anecdote told in bad Russian.",
+      "lines": 8,
+      "timeline": [
+        "Ch I — Named once, by his father, in the confession that both sons turned out fools: \"Hippolyte is at least a quiet fool, but Anatole is an active one. That is the only difference between them.\"",
+        "Ch V — Having gazed at the vicomte for some time through his lorgnette, he turns completely round toward the little princess, asks for a needle, and traces the Condé coat of arms on the table, explaining it to her with as much gravity as if she had asked him to.",
+        "Ch V — Applauds Pierre's outburst in English — \"Capital!\" — and begins slapping his knee with the palm of his hand.",
+        "Ch V — Contributes the whole of his own view of Napoleon: \"He's a low fellow, say what you will.\"",
+        "Ch V — Suddenly starts up, makes signs to everyone to attend and asks them all to be seated, then tells a charming Moscow story in such Russian as a Frenchman would speak after a year in Russia; everyone waits, so emphatically does he demand attention.",
+        "Ch V — Pauses mid-anecdote, evidently collecting his ideas with difficulty, then spluttered and burst out laughing long before his audience, which produced an effect unfavorable to the narrator; he finishes between gasps of laughter.",
+        "Ch V — The anecdote ends unintelligibly, but Anna Pávlovna and the others appreciate his social tact in so agreeably ending Pierre's unpleasant and unamiable outburst."
+      ],
+      "speaks_with": [
+        "the little princess (ch V, the heraldry)",
+        "the Vicomte de Mortemart (ch V, addressed before the anecdote)",
+        "the room at large / Anna Pávlovna and the other guests as audience (ch V)"
+      ]
+    },
+    {
+      "canonical": "Dr. Lorrain",
+      "variants": [
+        "Lorrain",
+        "the doctor (ch XXI tags i8 and i14)"
+      ],
+      "not_variants": [
+        "\"a German doctor\" / \"the German\" (ch XXI) — a DIFFERENT doctor in the same room, who speaks in dialect and later addresses Lorrain in badly pronounced French. Both are doctors and both are attending the same patient; only Lorrain gets the bare \"the doctor\" tag, because the German is always marked as German.",
+        "\"The doctors\" who pronounced recovery impossible (ch XXI opening) — a collective.",
+        "\"Dmítri Onúfrich\" — the family solicitor, the other outside professional in the case.",
+        "\"the Military Governor of Moscow\" — the visiting official."
+      ],
+      "who": "The fashionable French physician attending Count Bezúkhov, who poses gracefully under a portrait of Catherine, prescribes cream of tartar, and dates the death to the hour.",
+      "lines": 6,
+      "timeline": [
+        "Ch XXI — Sits in a graceful pose under a portrait of Catherine, leaning his elbow on a table, when the second princess comes from the sickroom with eyes red from weeping and sits down beside him.",
+        "Ch XXI — Answers a remark about the weather with society small talk: the weather is beautiful, and in Moscow one feels as if one were in the country.",
+        "Ch XXI — Considers, asks whether the patient has taken his medicine, glances at his watch, and prescribes a glass of boiled water with a pinch of cream of tartar, indicating with his delicate fingers what he means by a pinch. The second princess goes in with the drink prepared according to his instructions.",
+        "Ch XXI — Asked by the German doctor, in French he pronounces badly, whether the count can last till morning, he purses up his lips, waves a severely negative finger before his nose and says in a low voice \"Tonight, not later\" — then moves away with a decorous smile of self-satisfaction at being able clearly to understand and state the patient's condition.",
+        "Ch XXIV — In the middle of the night, in the small circular drawing room, he stands sipping tea from a delicate Chinese handleless cup with an air of restrained animation: there is nothing so refreshing after a sleepless night as a cup of this delicious Russian tea."
+      ],
+      "speaks_with": [
+        "the second princess / Princess Olga (ch XXI)",
+        "the German doctor (ch XXI)",
+        "the assembled household at the tea table (ch XXIV)"
+      ]
+    },
+    {
+      "canonical": "Princess Olga",
+      "variants": [
+        "the second princess (ch XXI)",
+        "the second of the three sisters (ch XXIV)",
+        "\"her sister\" (ch XXIV, from Catiche's side)",
+        "the princess (ch XXI tags i10, i11, i13 only)"
+      ],
+      "not_variants": [
+        "\"the princess\" / \"the eldest princess\" from ch XXI i22 onward, and every bare \"the princess\" in ch XXIV — Catiche, her eldest sister. The two are tagged identically in ch XXI and must be kept apart.",
+        "\"Sophie\" — the youngest of the three, the rosy laughter-loving one with the mole.",
+        "\"Anna Mikháylovna\" / \"Princess Drubetskáya\" — the interloping princess.",
+        "THE NAME ITSELF is imported: these four chapters never call her Olga. The identification rests on ch XVI (the eldest sends \"Olga\" out for the beef tea) and ch XXIII (Sophie is the youngest, the one with the mole), both outside this set. Within these four chapters she is only \"the second princess.\""
+      ],
+      "who": "The middle Bezúkhov sister, the one who actually nurses the dying man while her elder sister fights over his papers.",
+      "lines": 5,
+      "timeline": [
+        "Ch XXI — Comes from the sickroom with her eyes red from weeping and sits down beside Dr. Lorrain in the crowded, dimly lit reception room.",
+        "Ch XXI — Makes weather small talk with him, then asks the real question — may the count have something to drink? — and answers that he has taken his medicine.",
+        "Ch XXI — Goes back in with the drink she has prepared according to Lorrain's instructions; the door creaks and everyone in the room again looks toward it.",
+        "Ch XXIV — Bursts the terrible door open so that it bangs against the wall and rushes out wringing her hands: \"What are you doing! He is dying and you leave me alone with him!\" — the interruption that makes her sister drop the portfolio and lets Anna Mikháylovna carry it off."
+      ],
+      "speaks_with": [
+        "Dr. Lorrain (ch XXI)",
+        "Princess Catherine Semënovna, Anna Mikháylovna and Prince Vasíli (ch XXIV — she shouts at all three at once)"
+      ]
+    },
+    {
+      "canonical": "The little princess (Lise)",
+      "variants": [
+        "the little princess (the only form ch V uses)",
+        "Lise (ch I)",
+        "Lise Meinen (ch I, her maiden name)",
+        "\"young Bolkónski's wife\" (ch I)",
+        "\"his wife\" (ch V, when Prince Andrew signs that it is time to go)"
+      ],
+      "not_variants": [
+        "\"the princess\", \"the eldest princess\", \"the second princess\" (ch XXI, ch XXIV) — the Bezúkhov sisters; she is not in those chapters.",
+        "\"Princess Mary Bolkónskaya\" (ch I) — her sister-in-law, the unhappy girl in the country.",
+        "\"Princess Drubetskáya\" / \"Anna Mikháylovna\" — a different princess.",
+        "\"Bolkónskaya\" as a bare surname is never applied to her in these chapters; ch I gives her only as Lise Meinen and as young Bolkónski's wife."
+      ],
+      "who": "Prince Andrew's recently married wife, sitting over her needlework at the soirée, whom Anna Pávlovna intends to use as the channel for the Bolkónskaya match.",
+      "lines": 2,
+      "timeline": [
+        "Ch I — Named twice without appearing: Princess Mary's brother \"married Lise Meinen lately,\" and Anna Pávlovna closes the chapter promising to speak to \"Lise, young Bolkónski's wife, this very evening\" about marrying Anatole to Mary.",
+        "Ch V — Prince Hippolyte turns to her, asks for a needle, and traces the Condé coat of arms on the table for her; she listens, smiling.",
+        "Ch V — Draws her work nearer and challenges Pierre directly: \"What, Monsieur Pierre... Do you consider that assassination shows greatness of soul?\"",
+        "Ch V — Joins the general attack, shrugging her shoulders: \"And the prisoners he killed in Africa? That was horrible!\"",
+        "Ch V — Prince Andrew rises and makes her a sign that it is time to go."
+      ],
+      "speaks_with": [
+        "Pierre (ch V)",
+        "Prince Hippolyte (ch V)",
+        "the room at large during the attack on Pierre (ch V)"
+      ]
+    },
+    {
+      "canonical": "The German doctor",
+      "variants": [
+        "a German doctor",
+        "the German",
+        "\"the German doctor\""
+      ],
+      "not_variants": [
+        "\"Dr. Lorrain\" / \"Lorrain\" / the bare \"the doctor\" tags in ch XXI — the French physician he questions. He and Lorrain are two different men in one room, distinguished only by the word German and by his mangled speech.",
+        "\"the doctors\" who pronounced recovery impossible — the collective in the opening narration.",
+        "\"the aide-de-camp\" — the man he is talking to."
+      ],
+      "who": "A second physician at the Bezúkhov deathbed who talks statistics in heavy dialect and has to ask Lorrain, in bad French, how long the patient has.",
+      "lines": 4,
+      "timeline": [
+        "Ch XXI — Tells an aide-de-camp, in dialect the translation renders phonetically, that there has never been a case of anyone living after a third stroke — the count is on his sixth.",
+        "Ch XXI — Answers the whispered question about who will inherit the wealth with a smile: \"It von't go begging.\"",
+        "Ch XXI — After the second princess carries in the drink, he goes up to Lorrain and asks, in French which he pronounces badly, whether the count can last till morning — and gets \"Tonight, not later.\""
+      ],
+      "speaks_with": [
+        "the aide-de-camp (ch XXI)",
+        "Dr. Lorrain (ch XXI)"
+      ]
+    },
+    {
+      "canonical": "The old priest",
+      "variants": [
+        "an old priest",
+        "the priest",
+        "addressed by his clerical title (ch XXI, unquoted)"
+      ],
+      "not_variants": [
+        "\"the Abbé Morio\" (ch I) — the profound thinker Anna Pávlovna expects at her soirée, a different cleric who never appears in these chapters.",
+        "\"the clergy\" (ch XXI opening) — the collective at the deathbed.",
+        "The four anonymous crowd voices at ch XXI i4–i7 — a separate conversation \"at the other side of the room,\" left UNKNOWN in the gold."
+      ],
+      "who": "An old priest waiting at the Bezúkhov deathbed who supplies the chapter's opening sententia about the fixed limits of human life.",
+      "lines": 2,
+      "timeline": [
+        "Ch XXI — Sitting in the dimly lit reception room, tells a lady who has taken a seat beside him that the limits of human life are fixed and may not be o'erpassed.",
+        "Ch XXI — Answers her question about whether it is too late for unction: \"Ah, madam, it is a great sacrament,\" passing his hand over the thin grizzled strands of hair combed back across his bald head."
+      ],
+      "speaks_with": [
+        "the lady beside him (ch XXI)"
+      ]
+    },
+    {
+      "canonical": "The aide-de-camp (at the deathbed)",
+      "variants": [
+        "the aide-de-camp",
+        "an aide-de-camp (ch XXI)"
+      ],
+      "not_variants": [
+        "\"an aide-de-camp of Kutúzov's\" (ch I) — Prince Andrew Bolkónski, a different man in a different chapter and a different city.",
+        "\"aides-de-camp\" whom the Military Governor had been assiduous in sending to inquire after the count's health (ch XXI opening) — a plural of other officers.",
+        "\"the German doctor\" — the man he is speaking to."
+      ],
+      "who": "An officer at the Bezúkhov deathbed who says out loud what most of the room is thinking about the inheritance.",
+      "lines": 2,
+      "timeline": [
+        "Ch XXI — Remarks to the German doctor what a well-preserved man the count was.",
+        "Ch XXI — Adds, in a whisper, the question the whole house is circling: \"And who will inherit his wealth?\""
+      ],
+      "speaks_with": [
+        "the German doctor (ch XXI)"
+      ]
+    },
+    {
+      "canonical": "The lady beside the priest",
+      "variants": [
+        "a lady who had taken a seat beside him",
+        "the lady (ch XXI i2)"
+      ],
+      "not_variants": [
+        "\"the elderly lady\" (ch V) — a guest at the St Petersburg soirée, a different chapter and a different woman.",
+        "\"Anna Pávlovna\" — not present in ch XXI.",
+        "\"the second princess\" / \"the eldest princess\" / \"the princess\" — the Bezúkhov sisters, who are named or numbered; this woman is neither.",
+        "The unnamed crowd voices at ch XXI i4–i7 — the gold keeps those UNKNOWN rather than assigning them to her, even though they sit in the same anonymous reception room."
+      ],
+      "who": "An unnamed guest at the Bezúkhov deathbed who listens naïvely to the old priest and asks whether it is not too late for unction.",
+      "lines": 1,
+      "timeline": [
+        "Ch XXI — Takes a seat beside the old priest, listens naïvely to his words, and asks — adding his clerical title, as if she had no opinion of her own on the subject — whether it is not too late to administer unction."
+      ],
+      "speaks_with": [
+        "the old priest (ch XXI)"
+      ]
+    },
+    {
+      "canonical": "Anatole Kurágin",
+      "variants": [
+        "Anatole",
+        "\"your youngest\" / \"your younger son\" / \"your prodigal son\" (Anna Pávlovna, ch I)",
+        "\"an active fool\" (his father's phrase)"
+      ],
+      "not_variants": [
+        "\"Hippolyte\" — his brother, the quiet fool, who is present in ch V while Anatole never appears at all.",
+        "\"your daughter\" / \"my daughter\" (ch I) — his sister, whose coming out has enraptured everyone.",
+        "\"his son\" in \"Prince Vasíli wished to obtain this post for his son\" (ch I) — the chapter does not say which son, and it is not established as Anatole.",
+        "\"Prince Vasíli\" — his father, and the speaker of most of the lines about him."
+      ],
+      "who": "Prince Vasíli's dissolute younger son, discussed but never seen, whose forty-thousand-ruble habits set the marriage plot of chapter I in motion.",
+      "lines": 0,
+      "timeline": [
+        "Ch I — Anna Pávlovna singles him out to his father: of Vasíli's splendid children she does not speak of Anatole, the youngest — \"I don't like him\" — said in a tone admitting of no rejoinder.",
+        "Ch I — She reports that he was mentioned at Her Majesty's and that his father was pitied; Vasíli answers that he did all a father could and both sons turned out fools, Anatole being the active one.",
+        "Ch I — Vasíli complains he costs forty thousand rubles a year, and wonders what it will be in five years if he goes on like this.",
+        "Ch I — Anna Pávlovna proposes marrying him to Princess Mary Bolkónskaya; Vasíli asks only whether she is rich and then asks Anna Pávlovna to arrange the affair. She promises to speak to Lise that evening."
+      ],
+      "speaks_with": []
+    },
+    {
+      "canonical": "Old Prince Bolkónski (Prince Andrew's father)",
+      "variants": [
+        "Prince Bolkónski (the bare surname in ch I)",
+        "\"the well-known Prince Bolkónski\"",
+        "\"the King of Prussia\" (his army nickname)",
+        "\"her father\" (of Princess Mary)"
+      ],
+      "not_variants": [
+        "\"Prince Andrew\" / \"young Bolkónski\" — his son, the man who actually appears at the soirée. Chapter I's \"the well-known Prince Bolkónski who had to retire from the army under the late Emperor\" is the FATHER; a wiki that reads that sentence as describing Prince Andrew is confidently wrong.",
+        "\"Princess Mary Bolkónskaya\" — his daughter; \"Lise\" / \"young Bolkónski's wife\" — his daughter-in-law.",
+        "\"the King of Prussia\" as a real monarch — the SAME chapter has Prince Vasíli joke that Anna Pávlovna would have captured the King of Prussia's consent by assault. One is a nickname, the other a head of state, forty lines apart.",
+        "\"the prince\" tags in ch I — Prince Vasíli, who is the one actually in the room."
+      ],
+      "who": "Princess Mary's rich, stingy, eccentric father, retired from the army under the late Emperor and nicknamed \"the King of Prussia,\" described in one paragraph of chapter I and never seen.",
+      "lines": 0,
+      "timeline": [
+        "Ch I — Described by Anna Pávlovna in answer to Prince Vasíli's question about whether the proposed bride is rich: her father is very rich and stingy, lives in the country, is the well-known Prince Bolkónski who had to retire from the army under the late Emperor and was nicknamed \"the King of Prussia\" — very clever but eccentric, and a bore. \"The poor girl is very unhappy.\""
+      ],
+      "speaks_with": []
+    },
+    {
+      "canonical": "Princess Mary Bolkónskaya",
+      "variants": [
+        "Princess Mary Bolkónskaya",
+        "\"a little person who is very unhappy with her father\"",
+        "\"this princess of yours\" (Prince Vasíli)",
+        "\"the poor girl\"",
+        "\"a relation of yours\" (of Prince Vasíli)"
+      ],
+      "not_variants": [
+        "\"the little princess\" (ch V) — her brother's wife Lise, a different woman with a confusingly similar handle.",
+        "\"Princess Catherine Semënovna\" / \"the eldest princess\" / \"the second princess\" — the Bezúkhov sisters in ch XXI and XXIV.",
+        "\"Princess Drubetskáya\" — Anna Mikháylovna.",
+        "\"Prince Bolkónski\" — her father; \"young Bolkónski\" — her brother."
+      ],
+      "who": "The unhappy, rich, unseen daughter of old Prince Bolkónski, proposed in chapter I as a wife for Anatole Kurágin.",
+      "lines": 0,
+      "timeline": [
+        "Ch I — Anna Pávlovna names her as the answer to Anatole's debts: a little person who is very unhappy with her father, and a relation of Prince Vasíli's.",
+        "Ch I — Her family is priced for Vasíli: her father very rich and stingy, herself rich and of good family, which he says is all he wants; her brother is the aide-de-camp who will be at the soirée that night.",
+        "Ch I — The chapter ends with the match provisionally in motion: Anna Pávlovna will speak to Lise, her sister-in-law, this very evening."
+      ],
+      "speaks_with": []
+    },
+    {
+      "canonical": "Prince Vasíli's daughter (Hélène)",
+      "variants": [
+        "\"my daughter\" (Prince Vasíli, ch I)",
+        "\"your daughter\" (Anna Pávlovna, ch I)",
+        "\"two such splendid children\" / \"two such charming children\" — she is one of the two Anna Pávlovna approves of"
+      ],
+      "not_variants": [
+        "THE NAME HÉLÈNE IS NOT IN THESE CHAPTERS. All four give her only as Vasíli's daughter; the name is imported from elsewhere in the corpus. A per-chapter record should not assert it.",
+        "\"Anna Pávlovna\" / \"Annette\" — the woman praising her, not her.",
+        "\"Princess Mary Bolkónskaya\" — the bride proposed for her brother.",
+        "\"Anatole\" / \"Hippolyte\" — her brothers, the two children Anna Pávlovna does NOT praise."
+      ],
+      "who": "Prince Vasíli's recently launched daughter, praised as amazingly beautiful and used as his excuse to leave the soirée early, but never named and never present.",
+      "lines": 0,
+      "timeline": [
+        "Ch I — Prince Vasíli gives her as his reason for having to appear at the English ambassador's fete: \"My daughter is coming for me to take me there.\"",
+        "Ch I — Anna Pávlovna opens the intimate half of the conversation by telling him that since his daughter came out everyone has been enraptured by her and they say she is amazingly beautiful; the prince bows to signify his respect and gratitude."
+      ],
+      "speaks_with": []
+    }
+  ],
+  "ceiling_note": "WHAT THESE FOUR CHAPTERS ESTABLISH. 225 gold spans across 001/005/021/024: 217 attributed to a named or describable person, 7 left UNKNOWN by the text itself (ch V i4 a broken extractor span, i30 \"several voices\", i42 \"an ironical voice\"; ch XXI i4-i7, four anonymous crowd voices), and 1 NOT-SPEECH (ch I i2, the written invitation card signed \"Annette Schérer\"). Every speaking presence in the four chapters is covered above; the 20 records account for all 217 attributed lines. Speech is heavily concentrated: Prince Vasíli 67, Catiche 38, Anna Pávlovna 31, the vicomte 16, Anna Mikháylovna 13, Pierre 12, Prince Andrew 10, everyone else 8 or fewer.\n\nWHAT THEY DO NOT ESTABLISH — GAPS THE WIKI MUST NOT PAPER OVER.\n\n(1) Line counts here are DIALOGUE PRESENCE, not importance, and the two come apart badly. Count Bezúkhov speaks zero lines and is the subject of two entire chapters. Pierre speaks 12 lines, all of them in ch V, and NOT ONE in ch XXIV — the chapter in which his life changes. His silence is the characterisation; a records table sorted by line count would rank him below the vicomte and hide that.\n\n(2) Two chapters are one continuous scene (I and V are both the July 1805 soirée) and two are another (XXI and XXIV are the same night at the Bezúkhov house). So this is not four samples of a character, it is two. Nobody appears in both settings — Prince Vasíli comes closest, and even he is in I, XXI and XXIV but not V. Anna Pávlovna, Andrew, the vicomte, Hippolyte and Lise exist only in Petersburg; Anna Mikháylovna, Catiche, Lorrain and Olga only in Moscow. Any claim of the form \"X and Y know each other\" outside these two clusters is unsupported here.\n\n(3) Several canonical names are IMPORTED, and each import is flagged in its record. \"Olga\" comes from ch XVI and ch XXIII, not from XXI or XXIV. \"Hélène\" appears nowhere in these four chapters. \"Kurágin\" is never attached to Hippolyte. \"Bolkónski\" is never attached to Andrew in ch V, which contains no surnames at all. Count Bezúkhov's given name is never supplied. The ch V \"elderly lady\" is identified as Princess Drubetskáya only in ch IV, outside this set, so Anna Mikháylovna's presence at the soirée is imported too. A per-chapter gold standard and a cross-chapter character page want different name strings; the alias table should stay separate from the per-chapter attributions rather than being baked back into them.\n\n(4) The endings are provisional in ways a summary tends to over-close. At the end of ch XXIV the will HAS NOT BEEN OPENED — Anna Mikháylovna says so — so Pierre is an expectant heir, not yet Count Bezúkhov. Whether the letter of legitimation survived, who now holds the inlaid portfolio's contents, and what Vasíli does next are all open. Likewise ch I ends with the Anatole/Mary match merely promised to be raised with Lise that evening.\n\n(5) The trap this corpus is densest in is the shared-name problem, and it is not decorative. \"Count Bezúkhov\" denotes Pierre's father in every occurrence in these chapters but one forecast inside Prince Vasíli's ch XXI speech. \"Prince Bolkónski\" in ch I denotes Andrew's father, in a sentence a careless reader will attach to Andrew. \"The princess\" in ch XXI splits between two different women, and in ch XXIV always means Catiche and never Anna Mikháylovna though both are princesses in the same fight. \"The doctor\" splits between Lorrain and the German. \"Catherine\" is both Catiche and the Empress in the portrait on the wall. \"The King of Prussia\" is both a nickname and a monarch inside one chapter. \"An aide-de-camp\" is Prince Andrew in ch I and an unnamed officer in ch XXI. Each of these is spelled out in the relevant not_variants; a page that merges any one of them is confidently wrong rather than merely incomplete.\n\n(6) Timelines here are event-level and chapter-bounded. They record what the narration says happens to a person inside these four chapters, including offstage report (what Vasíli tells Catiche about the will, what the room says about the count). They do NOT establish backstory, motive beyond what the narrator states, or anything about the ~24 other chapters of Book One that sit between and around them — chapters in which, among other things, Pierre visits his dying father, the eldest princess slams the door referred to in ch XXIV, and Anna Mikháylovna presses Prince Vasíli about Borís."
+}
