@@ -1,0 +1,46 @@
+# THE READER AND THE SWEEP ARE SPLIT, because they fail differently and stop differently.
+#
+# A sweep is killed constantly — that is the assumption the whole library is built on. The reader
+# must not go down with it, because the dashboard is how anybody finds out what the sweep was doing
+# when it died. One container doing both means the page is dark exactly when it is wanted.
+
+services:
+  wp-dash:
+    image: warandpeace:latest
+    build:
+      context: .
+    container_name: wp-dash
+    restart: unless-stopped
+    # 127.0.0.1, because Compose otherwise publishes on 0.0.0.0 and bypasses the host firewall.
+    # Caddy fronts it, and the basic_auth lives there with every sibling's.
+    ports:
+      - "127.0.0.1:8092:8092"
+    volumes:
+      - ./readings:/app/readings
+      - ./records:/app/records
+      - ./wiki:/app/wiki
+    networks:
+      - proxy-net
+
+  # Not started by default: `docker compose run --rm wp-sweep <character> <chapter> <section>`.
+  # A sweep that came up with `compose up` would start reading the moment anybody restarted the
+  # reader, which is a way to spend a model budget by accident.
+  wp-sweep:
+    image: warandpeace:latest
+    profiles: ["sweep"]
+    depends_on: [wp-dash]
+    environment:
+      RATCHET_BASE: "${RATCHET_BASE:?set it, or bridge LLM_BASE_URL in the shell}"
+      RATCHET_MODEL: "${RATCHET_MODEL:?}"
+      RATCHET_KEY: "${RATCHET_KEY:-}"
+      RATCHET_THINKING: "${RATCHET_THINKING:-false}"
+    volumes:
+      - ./readings:/app/readings
+      - ./records:/app/records
+    entrypoint: ["sh", "-c", "java -cp classes:$$(cat cp.txt) tech.mikhailov.wp.Extract \"$$@\"", "--"]
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    external: true

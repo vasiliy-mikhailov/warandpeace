@@ -15,6 +15,13 @@ import tech.mikhailov.ratchet.record.Journal;
 import tech.mikhailov.ratchet.record.JsonlTrace;
 import tech.mikhailov.ratchet.record.Trace;
 import tech.mikhailov.wp.sections.Appearances;
+import tech.mikhailov.wp.sections.Arc;
+import tech.mikhailov.wp.sections.Facts;
+import tech.mikhailov.wp.sections.Names;
+import tech.mikhailov.wp.sections.Personality;
+import tech.mikhailov.wp.sections.Quotes;
+import tech.mikhailov.wp.sections.Relationships;
+import tech.mikhailov.wp.sections.Trivia;
 import tech.mikhailov.wp.sections.Work;
 
 /**
@@ -50,7 +57,7 @@ public final class Extract {
         Journal journal = new Journal(records.resolve(who + ".journal.jsonl"));
 
         ChatModel model = Model.forProducer(trace);
-        Work work = new Appearances(text, model);
+        Work work = sectionFor(want, text, model);
 
         List<String> paragraphs = text.paragraphs(chapter);
         System.out.println(hero.name() + " · " + chapter.book() + " ch " + chapter.numeral()
@@ -89,6 +96,37 @@ public final class Extract {
         System.out.println("\n── written ──");
         System.out.println("  " + Reading.path(Path.of("readings"), who, chapter.book(), slug, want));
         System.out.println("  took " + took + "s");
+    }
+
+    /**
+     * ONE PLACE THAT KNOWS WHICH CLASS IS WHICH SECTION.
+     *
+     * <p>Keyed on {@link Chain.Section#stage()} rather than on a string written here as well, so a
+     * section renamed in the enum cannot keep working under its old name in this switch. The
+     * default throws with the list rather than falling back to something plausible: a typo that
+     * silently ran the wrong extractor would write a reading under a section it is not.
+     */
+    static Work sectionFor(String stage, Text text, ChatModel model) {
+        for (Chain.Section section : Chain.Section.values()) {
+            if (!section.stage().equals(stage)) {
+                continue;
+            }
+            return switch (section) {
+                case APPEARANCES -> new Appearances(text, model);
+                case ARC -> new Arc(text, model);
+                case QUOTES -> new Quotes(text, model);
+                case RELATIONSHIPS -> new Relationships(text, model);
+                case PERSONALITY -> new Personality(text, model);
+                case TRIVIA -> new Trivia(text, model);
+                case NAMES -> new Names(text, model);
+                case FACTS -> new Facts(text, model);
+            };
+        }
+        StringBuilder known = new StringBuilder();
+        for (Chain.Section section : Chain.Section.values()) {
+            known.append(known.length() == 0 ? "" : ", ").append(section.stage());
+        }
+        throw new IllegalArgumentException("no section '" + stage + "'. There are: " + known);
     }
 
     /** A re-reading is attempt n+1, and the earlier ones stay on disk. */
