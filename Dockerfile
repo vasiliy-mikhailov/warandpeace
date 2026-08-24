@@ -27,8 +27,12 @@ COPY ui/package.json ui/pnpm-lock.yaml ui/pnpm-workspace.yaml ./
 # tested, and it turns pnpm's supply-chain policy from a gate into a coin toss depending on when
 # the build runs. A pinned @types/react-dom is why this now passes -- 19.2.5 was published hours
 # before this build and the policy rejected it, correctly.
+# THE VERSION IS PRINTED BECAUSE GUESSING IT COST THREE BUILDS. corepack resolves whatever
+# `packageManager` says, and with that field absent it picks its own default -- so the allowlist
+# spelling that works on the laptop can be the one this pnpm ignores, with nothing in the log
+# saying which pnpm ran.
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
-    pnpm install --frozen-lockfile
+    pnpm --version && pnpm install --frozen-lockfile && pnpm ls esbuild
 COPY ui/ ./
 RUN pnpm build
 
