@@ -7,3 +7,5 @@ wiki/
 corpus/pg2600.txt
 records/
 cp.txt
+ui/node_modules/
+ui/dist/
