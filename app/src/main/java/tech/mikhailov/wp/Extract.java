@@ -136,9 +136,19 @@ public final class Extract {
                 chapter.slug(), section)).size() + 1;
     }
 
-    private static String name(String slug) {
-        return Map.of("pierre", "Pierre", "andrew", "Prince Andrew",
-                "natasha", "Natásha", "nicholas", "Nicholas").getOrDefault(slug, slug);
+    /**
+     * WHAT A READER CALLS THIS CHARACTER, from the roster a person edits.
+     *
+     * <p>This was {@code Map.of("pierre", "Pierre", …)} — four names, in Java, in the class that
+     * runs the sweep. Everything else about this pipeline was configurable and the one input the
+     * whole run is about required an edit and a rebuild. A slug that is not on the roster still
+     * runs, under its own slug as its name, because refusing would make the roster a gate on
+     * experiments rather than a list of who the wiki is for.
+     */
+    private static String name(String slug) throws IOException {
+        Roster.Person person = Roster.read(Path.of("records", "roster.json"), Path.of("gold"))
+                .find(slug);
+        return person == null ? slug : person.name();
     }
 
     /**

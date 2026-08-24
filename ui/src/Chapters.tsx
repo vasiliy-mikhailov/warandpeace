@@ -28,16 +28,31 @@ export function Chapters() {
   ]
 
   return (
-    <Loaded
+    <>
+      {/*
+        THE HEADER IS RENDERED HERE AND NOT HANDED TO `Loaded`, and the difference is not cosmetic.
+        `Loaded` shows a `header` prop ONLY in its waiting and failed branches — once the value
+        arrives it returns `children(value)` alone — so a page that passes its header there has one
+        until the data lands and none afterwards. Every page in this app did, and it shipped: the
+        site went from its own title straight into the first section with no page heading at all.
+
+        It is worth knowing why no test caught it. The assertions looked for the heading and found
+        it, because it IS on screen — during the wait, before the mocked fetch resolves. A test that
+        queries the moment after render is testing the loading state and reading like it tests the
+        loaded one. They wait for the content now, then assert the heading is still there.
+
+        `header={null}` rather than omitted, because omitting it drops the gutter on the waiting
+        note and that note is then the only thing on the page not holding the left edge.
+      */}
+      <PageHeader
+        title="Chapters"
+        subtitle="The Maude translation, Gutenberg #2600, split the way the sweep reads it"
+      />
+      <Loaded
       what="chapter list"
       failed={chapters.failed}
       value={chapters.value}
-      header={
-        <PageHeader
-          title="Chapters"
-          subtitle="The Maude translation, Gutenberg #2600, split the way the sweep reads it"
-        />
-      }
+      header={null}
     >
       {(rows) => {
         const books = [...new Set(rows.map((row) => row.book))]
@@ -82,7 +97,8 @@ export function Chapters() {
           </>
         )
       }}
-    </Loaded>
+      </Loaded>
+    </>
   )
 }
 

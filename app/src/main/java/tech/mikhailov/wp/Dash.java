@@ -54,11 +54,19 @@ public final class Dash {
      */
     private final Path assets;
 
+    /** Where the hand-made seed roster lives, read only when nothing has been saved. */
+    private final Path gold;
+
     public Dash(Path records, Path readings, Path wiki, Text text) {
         this(records, readings, wiki, text, Path.of("static"));
     }
 
     public Dash(Path records, Path readings, Path wiki, Text text, Path assets) {
+        this(records, readings, wiki, text, assets, Path.of("gold"));
+    }
+
+    public Dash(Path records, Path readings, Path wiki, Text text, Path assets, Path gold) {
+        this.gold = gold;
         this.records = records;
         this.readings = readings;
         this.wiki = wiki;
@@ -87,6 +95,13 @@ public final class Dash {
                 case "/api/manifest" -> send(exchange, 200, manifest());
                 case "/api/items" -> send(exchange, 200, items());
                 case "/api/characters" -> send(exchange, 200, characters());
+                case "/api/roster" -> {
+                    if (exchange.getRequestMethod().equals("PUT")) {
+                        send(exchange, 200, saveRoster(exchange));
+                    } else {
+                        send(exchange, 200, roster().wire());
+                    }
+                }
                 case "/api/chapters" -> send(exchange, 200, chapters());
                 case "/api/badges" -> send(exchange, 200, badges());
                 default -> {
@@ -126,7 +141,8 @@ public final class Dash {
     static final List<String[]> NAV = List.of(
             new String[]{"Characters", "/", "characters"},
             new String[]{"Chapters", "/chapters", "chapters"},
-            new String[]{"The run", "/dashboard", "reading"});
+            new String[]{"The run", "/dashboard", "reading"},
+            new String[]{"Settings", "/settings", "characters"});
 
     /**
      * THE PAGES THIS SERVER ANSWERS FOR — and this list IS the routing, not a claim about it.
@@ -142,7 +158,7 @@ public final class Dash {
      * <p>So {@link #handle} now dispatches on THIS. Delete a path from here and the server stops
      * answering it, which is what makes comparing the nav against it mean anything.
      */
-    static final List<String> SERVED = List.of("/", "/chapters", "/dashboard");
+    static final List<String> SERVED = List.of("/", "/chapters", "/dashboard", "/settings");
 
     /**
      * Which nav paths point nowhere. Empty is the only acceptable answer, and a test asserts it.
@@ -252,14 +268,61 @@ public final class Dash {
                 + ",\"events\":[" + String.join(",", events) + "]}";
     }
 
+    Roster roster() throws IOException {
+        return Roster.read(records.resolve("roster.json"), gold);
+    }
+
+    /**
+     * REPLACE THE ROSTER, whole, because a partial edit needs an identity for each row and the row
+     * identity IS the slug the reader is editing.
+     *
+     * <p>A save that leaves the file unreadable would take the sweep down with it, so the body is
+     * parsed BEFORE anything is written and a body that yields nothing is refused rather than
+     * saved: an empty roster and an unparseable one look identical afterwards, and only one of them
+     * is something a person meant.
+     */
+    String saveRoster(HttpExchange exchange) throws IOException {
+        String body = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
+        Roster wanted;
+        try {
+            wanted = Roster.parse(body);
+        } catch (RuntimeException unreadable) {
+            return "{\"ok\":false,\"why\":" + json("that roster could not be read: "
+                    + unreadable.getMessage()) + "}";
+        }
+        if (wanted.people().isEmpty() && !body.strip().equals("[]")) {
+            return "{\"ok\":false,\"why\":\"that roster had no readable characters in it\"}";
+        }
+        wanted.write(records.resolve("roster.json"));
+        return "{\"ok\":true,\"saved\":" + wanted.people().size() + "}";
+    }
+
+    /**
+     * WHO HAS A PAGE, which is a different question from who should have one.
+     *
+     * <p>Joined against the roster so a character carries the NAME a person chose rather than the
+     * slug the filesystem uses, and so a character with nothing read yet still appears — at zero.
+     * A wiki that hides the characters it has not got to yet cannot be used to see what is left.
+     */
     String characters() throws IOException {
         List<String> out = new ArrayList<>();
-        for (String who : charactersOnDisk()) {
-            Path page = wiki.resolve(who + ".wiki");
-            out.add("{\"id\":" + json(who)
-                    + ",\"readings\":" + readingFiles().stream()
-                            .filter(p -> p.toString().contains("/" + who + "/")).count()
-                    + ",\"page\":" + (Files.exists(page) ? "true" : "false") + "}");
+        List<Path> readings = readingFiles();
+        for (Roster.Person person : roster().people()) {
+            String who = person.slug();
+            List<Path> mine = readings.stream()
+                    .filter(p -> p.toString().contains("/" + who + "/")).toList();
+            out.add("{\"slug\":" + json(who)
+                    + ",\"name\":" + json(person.name())
+                    + ",\"appearances\":" + mine.size()
+                    + ",\"chapters\":" + mine.stream()
+                            .map(p -> p.getParent() == null ? p : p.getParent())
+                            .distinct().count()
+                    + ",\"books\":" + mine.stream()
+                            .map(p -> p.getParent() == null || p.getParent().getParent() == null
+                                    ? p : p.getParent().getParent())
+                            .distinct().count()
+                    + ",\"page\":" + (Files.exists(wiki.resolve(who + ".wiki")) ? "true" : "false")
+                    + "}");
         }
         return "[" + String.join(",", out) + "]";
     }

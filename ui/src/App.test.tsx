@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { cleanup, render, screen, waitFor } from '@testing-library/react'
 
 import { App } from './App.js'
 
@@ -69,6 +69,7 @@ describe('the wiki renders', () => {
     vi.stubGlobal('fetch', serving(EMPTY as unknown as Record<string, unknown>))
   })
   afterEach(() => {
+    cleanup()
     vi.unstubAllGlobals()
   })
 
@@ -76,10 +77,13 @@ describe('the wiki renders', () => {
     at('/')
     render(<App />)
 
-    expect(await screen.findByText('Characters', { selector: 'h1' })).toBeTruthy()
-    // THE EMPTY STATE IS STATED, not left as a table of headings a reader takes for a failed load.
+    // THE CONTENT FIRST, THEN THE HEADING. The other order is what let a real bug ship: `Loaded`
+    // shows its `header` prop only while it waits, so a page passing the header there had one
+    // until the data landed and none afterwards -- and an assertion made the moment after render
+    // found it every time, because it was still the loading state.
     await waitFor(() =>
       expect(screen.getByText(/No character has a page yet/)).toBeTruthy())
+    expect(screen.getByText('Characters', { selector: 'h1' })).toBeTruthy()
     expect(screen.getByText('chapters in the book')).toBeTruthy()
   })
 
@@ -87,10 +91,10 @@ describe('the wiki renders', () => {
     at('/chapters')
     render(<App />)
 
-    expect(await screen.findByText('Chapters', { selector: 'h1' })).toBeTruthy()
+    await waitFor(() => expect(screen.getAllByText(/BOOK ONE/).length).toBeGreaterThan(1))
+    expect(screen.getByText('Chapters', { selector: 'h1' })).toBeTruthy()
     // BOOK FOUR appears twice on purpose -- once as a filter and once in the table -- so this
     // counts rather than assuming one, which is what the first draft of this assertion did.
-    await waitFor(() => expect(screen.getAllByText(/BOOK ONE/).length).toBeGreaterThan(1))
     expect(screen.getAllByText(/BOOK FOUR/).length).toBeGreaterThan(0)
   })
 
@@ -98,8 +102,8 @@ describe('the wiki renders', () => {
     at('/dashboard')
     render(<App />)
 
-    expect(await screen.findByText('The run', { selector: 'h1' })).toBeTruthy()
     await waitFor(() => expect(screen.getByText(/Nothing has been read yet/)).toBeTruthy())
+    expect(screen.getByText('The run', { selector: 'h1' })).toBeTruthy()
     expect(screen.getByText(/docker compose run --rm wp-sweep/)).toBeTruthy()
   })
 
