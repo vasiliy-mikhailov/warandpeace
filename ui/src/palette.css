@@ -1,0 +1,81 @@
+/*
+ * THE PALETTE, WHICH ratchet-ui DELIBERATELY DOES NOT SHIP.
+ *
+ * Its components name every colour as a custom property and define none of them, so a component
+ * reaching for a token this file does not promise fails the package's own test rather than
+ * rendering invisibly. Defining them is the consumer's job and this is where War and Peace does it.
+ *
+ * WARM PAPER AND INK, because the subject is a book. The neutrals carry a slight warm bias rather
+ * than being true greys — a page of Tolstoy is not a control panel — and the one saturated colour is
+ * a muted military blue, for a novel half of which is a war. Nothing here is a brand; it is a
+ * reading surface.
+ */
+:root {
+  color-scheme: light;
+
+  --bg-canvas: #f7f4ee;
+  --bg-panel: #fffdf9;
+  --bg-card: #fffdf9;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #efeae1;
+
+  --text-primary: #23201b;
+  --text-secondary: #57503f;
+  --text-tertiary: #8a8172;
+
+  --border-soft: #e2dbcd;
+  --border-strong: #c9c0ad;
+
+  --accent-primary: #3f5d75;
+  --accent-hover: #334c60;
+  --accent-soft: #e6edf3;
+  --accent-action: #3f5d75;
+  --accent-action-hover: #334c60;
+  --accent-on-action: #fffdf9;
+
+  --danger: #9c3b2e;
+  --danger-hover: #7f3025;
+
+  --focus-ring: #3f5d75;
+
+  --state-good: #4a6b45;
+  --state-alarm: #9c3b2e;
+  --state-warn: #9a6d24;
+  --state-quiet: #8a8172;
+  --state-aside: #6b5f8a;
+  --state-running: #3f5d75;
+  --state-count-good: #4a6b45;
+  --state-count-alarm: #9c3b2e;
+  --state-active-bg: #e6edf3;
+  --state-hover-bg: #efeae1;
+  --state-selected-bg: #3f5d75;
+  --state-selected-text: #fffdf9;
+  --state-progress-from: #3f5d75;
+  --state-progress-to: #6a8ba3;
+
+  --code-keyword: #6b5f8a;
+  --code-string: #4a6b45;
+  --code-number: #9a6d24;
+  --code-comment: #8a8172;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: ui-serif, Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * THE ROW BAND IS WRITTEN HERE AND NOT IN ratchet-ui, and that is its DataTable's instruction
+ * rather than a preference: a utility class only exists if a stylesheet generator saw the literal
+ * string somewhere it was scanning, and a package installed into node_modules may sit outside the
+ * consumer's globs. A class that goes missing costs nothing visible — no error, no failing test,
+ * the rule simply never emitted — so the hover band lives in the source this project already scans.
+ */
+.wp-row:hover { background: var(--state-hover-bg); }
+
+a { color: var(--accent-primary); }

@@ -1,0 +1,1 @@
+{"version":3,"file":"EmptyNote.js","sourceRoot":"","sources":["../../src/components/EmptyNote.tsx"],"names":[],"mappings":";AAIA;;;;;;;;;;;;;;;;;GAiBG;AACH,MAAM,UAAU,SAAS,CAAC,EAAE,QAAQ,EAAkB;IACpD,OAAO,CACL,YACE,KAAK,EAAE;YACL,KAAK,EAAE,sBAAsB;YAC7B,QAAQ,EAAE,QAAQ;YAClB,MAAM,EAAE,QAAQ;YAChB,SAAS,EAAE,QAAQ;SACpB,YAEA,QAAQ,GACP,CACL,CAAA;AACH,CAAC"}

@@ -1,0 +1,7 @@
+ui/node_modules
+ui/dist
+target
+readings
+records
+wiki
+.git

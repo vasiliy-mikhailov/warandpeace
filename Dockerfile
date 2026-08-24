@@ -9,6 +9,24 @@
 # install-ratchet.sh does on a laptop. The clone is its own layer: it changes when the pin changes
 # and not when our code does.
 
+# THE INTERFACE IS BUILT HERE AND SERVED BY JAVA, so nothing node-shaped reaches the runtime image.
+# The reader is already an HTTP server with the record mounted into it; giving it a static directory
+# costs one handler, where a Node process beside it would be a second thing to keep alive and a
+# second place for the dashboard to be dark exactly when the sweep it reports on has died. That is
+# the same argument the compose file makes for splitting the reader from the sweep.
+#
+# ratchet-ui is a git dependency at a tag, for the reason ratchet is: neither publishes to a
+# registry. pnpm needs the lockfile and the manifest before the sources, so a change to a component
+# does not re-resolve the tree.
+FROM node:22-alpine AS ui
+WORKDIR /ui
+RUN corepack enable
+COPY ui/package.json ui/pnpm-lock.yaml* ./
+RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
+    pnpm install --no-frozen-lockfile
+COPY ui/ ./
+RUN pnpm build
+
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /src
 
@@ -34,6 +52,7 @@ WORKDIR /app
 # absent or stale — a run against a corpus nobody can identify is a run nobody can repeat.
 COPY corpus ./corpus
 COPY gold ./gold
+COPY --from=ui /ui/dist ./static
 COPY --from=build /src/target/classes ./classes
 COPY --from=build /src/cp.txt ./cp.txt
 COPY --from=build /root/.m2/repository /root/.m2/repository

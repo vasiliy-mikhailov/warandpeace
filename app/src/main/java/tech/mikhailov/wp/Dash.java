@@ -43,17 +43,33 @@ public final class Dash {
     private final Path wiki;
     private final Text text;
 
+    /**
+     * THE BUILT UI, SERVED BY THE PROCESS THAT SERVES THE API.
+     *
+     * <p>No node in the runtime image and no second container. This process is already an HTTP
+     * server with the record mounted into it; a {@code static/} directory is one handler, where a
+     * Node process beside it would be a second thing to keep alive and a second place for the
+     * dashboard to be dark exactly when the sweep it reports on has died — which is the same
+     * argument the compose file makes for splitting the reader from the sweep.
+     */
+    private final Path assets;
+
     public Dash(Path records, Path readings, Path wiki, Text text) {
+        this(records, readings, wiki, text, Path.of("static"));
+    }
+
+    public Dash(Path records, Path readings, Path wiki, Text text, Path assets) {
         this.records = records;
         this.readings = readings;
         this.wiki = wiki;
         this.text = text;
+        this.assets = assets;
     }
 
     public static void main(String[] args) throws IOException {
         int port = args.length > 0 ? Integer.parseInt(args[0]) : 8087;
         Dash dash = new Dash(Path.of("records"), Path.of("readings"), Path.of("wiki"),
-                new Text(Path.of("corpus")));
+                new Text(Path.of("corpus")), Path.of("static"));
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/", dash::handle);
         server.setExecutor(null);
@@ -76,6 +92,15 @@ public final class Dash {
                 default -> {
                     if (path.startsWith("/api/items/")) {
                         send(exchange, 200, detail(path.substring("/api/items/".length())));
+                    } else if (SERVED.contains(path)) {
+                        // ONE DOCUMENT FOR EVERY PAGE. The bundle routes on the path it was loaded
+                        // at, so the server's job is to hand the same index.html to each of them
+                        // and let the client decide. A path NOT in SERVED is a 404 here rather than
+                        // a page, so a link to a route nobody built fails loudly instead of
+                        // rendering an empty shell that looks like a slow load.
+                        page(exchange);
+                    } else if (path.startsWith("/assets/")) {
+                        asset(exchange, path);
                     } else {
                         send(exchange, 404, "{\"ok\":false,\"why\":\"no such endpoint: "
                                 + esc(path) + "\"}");
@@ -103,7 +128,20 @@ public final class Dash {
             new String[]{"Chapters", "/chapters", "chapters"},
             new String[]{"The run", "/dashboard", "reading"});
 
-    /** The pages this server will actually answer for. The nav is checked against exactly this. */
+    /**
+     * THE PAGES THIS SERVER ANSWERS FOR — and this list IS the routing, not a claim about it.
+     *
+     * <p>IT USED TO BE A SECOND COPY OF THE ROUTE TABLE AND THAT MADE THE GUARD ABOVE VACUOUS. The
+     * handler served {@code /api/*} and nothing else; {@link #NAV} named three pages; this named the
+     * same three; {@link #danglingNav()} compared the two hand-written lists, found them in perfect
+     * agreement, and reported the nav healthy while the server returned 404 for every path on it.
+     * The javadoc on {@code danglingNav} says it exists because a sibling repository published nav
+     * items pointing at routes no page served. It had exactly that bug, one level up, because it
+     * checked a list against a list instead of against the routing.
+     *
+     * <p>So {@link #handle} now dispatches on THIS. Delete a path from here and the server stops
+     * answering it, which is what makes comparing the nav against it mean anything.
+     */
     static final List<String> SERVED = List.of("/", "/chapters", "/dashboard");
 
     /**
@@ -288,6 +326,63 @@ public final class Dash {
     }
 
     // ---------------------------------------------------------------- plumbing
+
+    /**
+     * The single-page document, for every path the nav can reach.
+     *
+     * <p>A MISSING BUNDLE IS SAID IN WORDS. An image built without the UI stage would otherwise
+     * serve an empty 200, and an empty 200 is the one failure a reader cannot tell from a slow
+     * network. The API keeps working either way, which is deliberate: the record is the thing that
+     * must not go dark.
+     */
+    private void page(HttpExchange exchange) throws IOException {
+        Path index = assets.resolve("index.html");
+        if (!Files.isRegularFile(index)) {
+            byte[] said = ("The API is serving but the interface was not built into this image. "
+                    + "Run `pnpm build` in ui/ and rebuild, or read /api/manifest directly.")
+                    .getBytes(StandardCharsets.UTF_8);
+            exchange.getResponseHeaders().add("Content-Type", "text/plain; charset=utf-8");
+            exchange.sendResponseHeaders(503, said.length);
+            try (OutputStream out = exchange.getResponseBody()) {
+                out.write(said);
+            }
+            return;
+        }
+        write(exchange, 200, "text/html; charset=utf-8", Files.readAllBytes(index));
+    }
+
+    /**
+     * One built asset, by exact name.
+     *
+     * <p>THE PATH IS REBUILT FROM ITS OWN FILE NAME RATHER THAN TRUSTED. {@code normalize} on a
+     * caller's string is the wrong instrument — it resolves {@code ..} but happily walks out of the
+     * directory when the prefix check is written the obvious way. Taking only the final segment
+     * cannot escape, and the bundle's names are flat by construction.
+     */
+    private void asset(HttpExchange exchange, String path) throws IOException {
+        String name = path.substring(path.lastIndexOf('/') + 1);
+        Path file = assets.resolve("assets").resolve(name);
+        if (name.isEmpty() || !Files.isRegularFile(file)) {
+            send(exchange, 404, "{\"ok\":false,\"why\":\"no such asset: " + esc(path) + "\"}");
+            return;
+        }
+        String type = name.endsWith(".css") ? "text/css; charset=utf-8"
+                : name.endsWith(".js") ? "text/javascript; charset=utf-8"
+                : name.endsWith(".svg") ? "image/svg+xml"
+                : "application/octet-stream";
+        // The names are content-hashed by the bundler, so a year is safe and a reload is free.
+        exchange.getResponseHeaders().add("Cache-Control", "public, max-age=31536000, immutable");
+        write(exchange, 200, type, Files.readAllBytes(file));
+    }
+
+    private void write(HttpExchange exchange, int status, String type, byte[] body)
+            throws IOException {
+        exchange.getResponseHeaders().add("Content-Type", type);
+        exchange.sendResponseHeaders(status, body.length);
+        try (OutputStream out = exchange.getResponseBody()) {
+            out.write(body);
+        }
+    }
 
     private void send(HttpExchange exchange, int status, String body) throws IOException {
         byte[] bytes = body.getBytes(StandardCharsets.UTF_8);
