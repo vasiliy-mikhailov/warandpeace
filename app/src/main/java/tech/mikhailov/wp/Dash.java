@@ -207,8 +207,16 @@ public final class Dash {
                 : "{\"ok\":false,\"why\":" + json("nav points nowhere: " + dead) + "}";
     }
 
+    /**
+     * The counts the nav carries.
+     *
+     * <p>{@code characters} IS THE ROSTER AND NOT WHAT IS ON DISK. It was the latter, which meant
+     * the badge said 0 beside a page listing twenty — the same number disagreeing with itself one
+     * line apart, because one of them answered "who has readings" and the other "who is this wiki
+     * for". The badge labels the Characters page, so it counts what that page lists.
+     */
     String badges() throws IOException {
-        return "{\"characters\":" + charactersOnDisk().size()
+        return "{\"characters\":" + roster().people().size()
                 + ",\"chapters\":" + text.chaptersIn(null).size()
                 + ",\"reading\":" + readingFiles().size() + "}";
     }
