@@ -22,8 +22,13 @@ FROM node:22-alpine AS ui
 WORKDIR /ui
 RUN corepack enable
 COPY ui/package.json ui/pnpm-lock.yaml* ./
+# FROZEN, so the image is the lockfile and not whatever resolved today. `--no-frozen-lockfile`
+# was the first draft and it is the wrong instrument here: it lets the image drift from what was
+# tested, and it turns pnpm's supply-chain policy from a gate into a coin toss depending on when
+# the build runs. A pinned @types/react-dom is why this now passes -- 19.2.5 was published hours
+# before this build and the policy rejected it, correctly.
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
-    pnpm install --no-frozen-lockfile
+    pnpm install --frozen-lockfile
 COPY ui/ ./
 RUN pnpm build
 
