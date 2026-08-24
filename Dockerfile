@@ -21,7 +21,7 @@
 FROM node:22-alpine AS ui
 WORKDIR /ui
 RUN corepack enable
-COPY ui/package.json ui/pnpm-lock.yaml* ./
+COPY ui/package.json ui/pnpm-lock.yaml ui/pnpm-workspace.yaml ./
 # FROZEN, so the image is the lockfile and not whatever resolved today. `--no-frozen-lockfile`
 # was the first draft and it is the wrong instrument here: it lets the image drift from what was
 # tested, and it turns pnpm's supply-chain policy from a gate into a coin toss depending on when

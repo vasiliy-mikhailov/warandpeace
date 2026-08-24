@@ -1,0 +1,13 @@
+# WHERE pnpm 10 LOOKS FOR THIS, and it is not package.json any more.
+#
+# esbuild fetches its platform binary in a postinstall. pnpm 10 refuses to run a lifecycle script
+# for any package not on an explicit allowlist and exits non-zero, so without this the image build
+# fails at `pnpm install` and vite never gets a binary to bundle with.
+#
+# The `pnpm.onlyBuiltDependencies` block in package.json is the pnpm 9 spelling. It is ignored here,
+# and the way that presents is the trap worth writing down: on a machine whose store already holds
+# the built artefact no script needs to run, so the wrong spelling passes locally and fails on any
+# host with a cold store. Reproduce with `pnpm install --store-dir "$(mktemp -d)"` before believing
+# a green install.
+onlyBuiltDependencies:
+  - esbuild
