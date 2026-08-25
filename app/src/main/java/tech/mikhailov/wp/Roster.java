@@ -26,15 +26,48 @@ import tech.mikhailov.ratchet.record.Json;
  * character can be on this list with nothing read for them yet — that is the normal state of a fresh
  * roster and the whole reason the settings page exists.
  *
- * <p>THE VARIANTS TRAVEL WITH THE NAME because a regex over a canonical name finds a fraction of the
- * appearances: Pierre is "Pierre", "Monsieur Pierre", "the young man", "the orator" and six more, and
- * a sweep that matched only the first would build a page with holes in it and no way to know. The
- * seed carries the ones already established by hand in {@code gold/}.
+ * <p>A SLUG AND A NAME, AND DELIBERATELY NOT A LIST OF WHAT ELSE THE TEXT CALLS THEM. The first
+ * draft carried "variants" — nine strings for Pierre, seeded from {@code gold/} — on the reasoning
+ * that matching only the canonical name would miss "the young man" and "the orator". That is right
+ * about the problem and it makes it WORSE, which is the part the draft got wrong.
+ *
+ * <p>LOOK AT WHAT THOSE STRINGS ACTUALLY ARE, in the file the draft seeded from:
+ *
+ * <pre>
+ * the young man (ch XXIV)
+ * this young Jacobin (ch V, narrator via the vicomte)
+ * my friend (ch XXIV, Prince Vasíli's address)
+ * my dear boy / my dear friend (ch XXIV, Anna Mikháylovna's address)
+ * </pre>
+ *
+ * <p>EVERY ONE IS SCOPED TO A CHAPTER AND OFTEN TO A SPEAKER. That file is a record of what was
+ * observed, where, and in whose mouth — an OUTPUT. A roster strips the scope and asserts the forms
+ * everywhere: "my friend" becomes Pierre in all 365 chapters, when in chapter XXIV it is Prince
+ * Vasíli addressing him and everywhere else it is whoever anyone happens to be addressing. "The
+ * young man" is a young man. Handed that list, a reading does not merely fail to find Pierre where
+ * he is — it FINDS HIM WHERE HE IS NOT, and a false appearance is worse than a missing one because
+ * nothing downstream can tell it from a real one.
+ *
+ * <p>THE {@code names} SECTION ALREADY DOES THIS, PER CHAPTER, WHICH IS THE ONLY SCOPE THAT IS
+ * TRUE. Measured on the first live run, Book One chapter V, with nothing handed to it:
+ *
+ * <pre>
+ * forms: Pierre (narrator, 17), Monsieur Pierre (Anna Pávlovna, 4),
+ *        the orator (narrator, 1), this young Jacobin (the vicomte, 1)
+ * not:   Monsieur — the vicomte, referring to Pierre in "how monsieur explains"
+ * </pre>
+ *
+ * <p>It found the forms from context, attributed each to a speaker, counted them, and kept a
+ * {@code not} list for a form that means somebody else here. A static list cannot express that last
+ * line at all, and it is the line that decides whether a page is about the right person.
+ *
+ * <p>Nothing in the sweep ever read the field, which is how a harmful input hides: it cost nothing
+ * at runtime, and the settings page asked a person to maintain it.
  */
 public record Roster(List<Person> people) {
 
-    /** One character: how the run refers to them, how a reader does, and what the text calls them. */
-    public record Person(String slug, String name, List<String> variants) {
+    /** One character: how the run refers to them, and how a reader does. */
+    public record Person(String slug, String name) {
 
         public Person {
             if (slug == null || slug.isBlank()) {
@@ -43,13 +76,11 @@ public record Roster(List<Person> people) {
             if (name == null || name.isBlank()) {
                 throw new IllegalArgumentException("a character needs a name: " + slug);
             }
-            variants = variants == null ? List.of() : List.copyOf(variants);
         }
 
         String wire() {
             return Json.object(Json.field("slug", Json.string(slug)),
-                    Json.field("name", Json.string(name)),
-                    Json.field("variants", Json.array(variants, Json::string)));
+                    Json.field("name", Json.string(name)));
         }
     }
 
@@ -97,7 +128,7 @@ public record Roster(List<Person> people) {
             if (slug.isBlank() || name.isBlank()) {
                 continue;
             }
-            people.add(new Person(slug, name, strings(Json.part(one, "variants"))));
+            people.add(new Person(slug, name));
         }
         return new Roster(people);
     }
@@ -119,7 +150,9 @@ public record Roster(List<Person> people) {
             for (int n = 2; !taken.add(unique); n++) {
                 unique = slug + "-" + n;
             }
-            people.add(new Person(unique, canonical, strings(Json.part(one, "variants"))));
+            // The gold file's own variants are left where they are: that list is the hand-made
+            // TARGET the pipeline is measured against, which is a different thing from an input.
+            people.add(new Person(unique, canonical));
         }
         return new Roster(people);
     }
@@ -168,34 +201,4 @@ public record Roster(List<Person> people) {
         return out;
     }
 
-    /** The strings of a JSON array of strings. */
-    private static List<String> strings(String array) {
-        List<String> out = new ArrayList<>();
-        boolean inString = false;
-        StringBuilder one = new StringBuilder();
-        for (int i = 0; i < array.length(); i++) {
-            char c = array.charAt(i);
-            if (inString) {
-                if (c == '\\' && i + 1 < array.length()) {
-                    char next = array.charAt(++i);
-                    one.append(switch (next) {
-                        case 'n' -> '\n';
-                        case 't' -> '\t';
-                        case 'r' -> '\r';
-                        case 'u' -> (char) Integer.parseInt(array, i + 1, i += 4, 16);
-                        default -> next;
-                    });
-                } else if (c == '"') {
-                    out.add(one.toString());
-                    one.setLength(0);
-                    inString = false;
-                } else {
-                    one.append(c);
-                }
-            } else if (c == '"') {
-                inString = true;
-            }
-        }
-        return out;
-    }
 }

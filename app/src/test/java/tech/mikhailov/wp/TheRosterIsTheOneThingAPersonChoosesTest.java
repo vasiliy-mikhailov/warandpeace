@@ -34,11 +34,31 @@ class TheRosterIsTheOneThingAPersonChoosesTest {
         assertNotNull(pierre, "slugs are folded, not stripped: "
                 + seeded.people().stream().map(Roster.Person::slug).toList());
         assertEquals("Pierre Bezúkhov", pierre.name());
-        assertTrue(pierre.variants().size() >= 9,
-                "THE VARIANTS TRAVEL WITH THE NAME. A regex over the canonical name alone finds a "
-                        + "fraction of the appearances — Pierre is also the young man, the orator "
-                        + "and seven more — and a sweep matching only the first builds a page with "
-                        + "holes in it and no way to know: " + pierre.variants());
+    }
+
+    @Test
+    void theRosterDoesNotCarryWhatElseTheTextCallsThem(@TempDir Path root) throws Exception {
+        // THE FOLD FINDS THE NAMES; SUPPLYING THEM MAKES THE READING WORSE. An earlier draft
+        // seeded a `variants` list from gold/ so a sweep would not miss "the orator". Look at what
+        // it was seeding: every string in that file is scoped -- "the young man (ch XXIV)",
+        // "my friend (ch XXIV, Prince Vasíli's address)" -- because it is a record of what was
+        // observed, where, and in whose mouth.
+        //
+        // A roster strips the scope and asserts the forms across all 365 chapters. "My friend"
+        // becomes Pierre wherever anyone says it. "The young man" becomes Pierre wherever there is
+        // a young man. The list does not just fail to find him, IT FINDS HIM WHERE HE IS NOT, and a
+        // false appearance is worse than a missing one because nothing downstream can tell it from
+        // a real one.
+        //
+        // The `names` section does it per chapter, which is the only scope that is true, and it
+        // keeps a `not` list for forms that mean somebody else here. That is the line a static list
+        // cannot express, and it is the line that decides whether a page is about the right person.
+        // Hence an assertion about ABSENCE.
+        Roster seeded = Roster.read(root.resolve("nothing.json"), Path.of("gold"));
+
+        assertTrue(seeded.wire().contains("\"slug\"") && seeded.wire().contains("\"name\""));
+        assertTrue(!seeded.wire().contains("variant"),
+                "the roster is a slug and a name: " + seeded.wire().substring(0, 200));
     }
 
     @Test
@@ -58,8 +78,8 @@ class TheRosterIsTheOneThingAPersonChoosesTest {
         // first's and the journal reports the work already done.
         Path saved = root.resolve("roster.json");
         Roster gold = Roster.fromGold("{\"characters\":["
-                + "{\"canonical\":\"Princess Mary\",\"variants\":[]},"
-                + "{\"canonical\":\"Princess Mary\",\"variants\":[]}]}");
+                + "{\"canonical\":\"Princess Mary\"},"
+                + "{\"canonical\":\"Princess Mary\"}]}");
 
         assertEquals(List.of("princess-mary", "princess-mary-2"),
                 gold.people().stream().map(Roster.Person::slug).toList());
@@ -71,15 +91,14 @@ class TheRosterIsTheOneThingAPersonChoosesTest {
     void whatIsSavedIsWhatComesBack(@TempDir Path root) throws Exception {
         Path saved = root.resolve("roster.json");
         Roster mine = new Roster(List.of(
-                new Roster.Person("pierre", "Pierre", List.of("the young man", "the orator")),
-                new Roster.Person("andrew", "Prince Andrew", List.of())));
+                new Roster.Person("pierre", "Pierre"),
+                new Roster.Person("andrew", "Prince Andrew")));
 
         mine.write(saved);
         Roster back = Roster.read(saved, Path.of("gold"));
 
         assertEquals(2, back.people().size(), "and NOT the twenty-character seed");
         assertEquals("Pierre", back.find("pierre").name());
-        assertEquals(List.of("the young man", "the orator"), back.find("pierre").variants());
         assertNull(back.find("natasha"));
     }
 
@@ -90,29 +109,25 @@ class TheRosterIsTheOneThingAPersonChoosesTest {
         // JSON writer, and this file is written by one.
         Path saved = root.resolve("roster.json");
         String awkward = "The \"old\" prince\nand a second line";
-        new Roster(List.of(new Roster.Person("odd", awkward, List.of("a \"variant\""))))
-                .write(saved);
+        new Roster(List.of(new Roster.Person("odd", awkward))).write(saved);
 
         Roster back = Roster.read(saved, Path.of("gold"));
 
         assertEquals(awkward, back.find("odd").name());
-        assertEquals(List.of("a \"variant\""), back.find("odd").variants());
     }
 
     @Test
     void aCharacterWithoutANameIsRefusedRatherThanSavedAsItsSlug() {
         // The settings page can produce this with one empty field, and a character called
         // "pierre-bezukhov" on its own page is a row nobody would notice was wrong.
-        assertThrows(IllegalArgumentException.class,
-                () -> new Roster.Person("pierre", "  ", List.of()));
-        assertThrows(IllegalArgumentException.class,
-                () -> new Roster.Person("", "Pierre", List.of()));
+        assertThrows(IllegalArgumentException.class, () -> new Roster.Person("pierre", "  "));
+        assertThrows(IllegalArgumentException.class, () -> new Roster.Person("", "Pierre"));
     }
 
     @Test
     void anUnreadableRosterIsNotWrittenOverAGoodOne(@TempDir Path root) throws Exception {
         Path saved = root.resolve("roster.json");
-        new Roster(List.of(new Roster.Person("pierre", "Pierre", List.of()))).write(saved);
+        new Roster(List.of(new Roster.Person("pierre", "Pierre"))).write(saved);
         String before = Files.readString(saved);
 
         // What Dash.saveRoster refuses: a body that parses to nothing but was not meant as empty.

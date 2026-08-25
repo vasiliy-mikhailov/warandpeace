@@ -18,13 +18,21 @@ import { useRead } from './useRead.js'
  * <p>It was four names in a `Map.of` inside the class that runs the sweep. Everything else here was
  * a setting and the thing the whole run is about required editing Java and rebuilding an image.
  *
- * <p>THE VARIANTS ARE THE HALF THAT IS EASY TO SKIP AND EXPENSIVE TO GET WRONG. A sweep matching
- * only "Pierre" misses "Monsieur Pierre", "the young man" and "the orator", and builds a page with
- * holes in it that nothing downstream can detect — the extraction succeeded, it just never saw the
- * chapter. So the editor gives them the same weight as the name rather than hiding them behind a
- * disclosure.
+ * <p>A NAME, AND NOTHING ABOUT WHAT ELSE THE TEXT CALLS THEM. This page had a variants editor —
+ * one line per alternative name, seeded from `gold/` — so a sweep would not miss "the orator". It
+ * was removed because it makes the reading worse, not merely redundant.
+ *
+ * <p>Those strings are scoped in the file they came from: "the young man (ch XXIV)", "my friend
+ * (ch XXIV, Prince Vasíli's address)". A roster asserts them across all 365 chapters, so "my
+ * friend" becomes Pierre wherever anyone says it and "the young man" becomes Pierre wherever there
+ * is a young man. The list does not fail to find him, it finds him WHERE HE IS NOT — and a false
+ * appearance is worse than a missing one, because nothing downstream can tell it from a real one.
+ *
+ * <p>The `names` section already does this per chapter, which is the only scope that is true, and
+ * keeps a `not` list for forms that mean somebody else there. Asking a person to maintain a worse
+ * version of a fold's output was the wrong thing to put on a settings page.
  */
-type Person = { slug: string; name: string; variants: string[] }
+type Person = { slug: string; name: string }
 
 export function Settings() {
   const saved = useRead<Person[]>('/api/roster')
@@ -105,6 +113,8 @@ export function Settings() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 13, margin: '0 0 14px' }}>
               {roster.length} character{roster.length === 1 ? '' : 's'}. A sweep reads every chapter
               once per character, so this list is the largest single lever on what a run costs.
+              What else the text calls them is not set here — the <code>names</code> section works
+              that out per chapter, which is the only scope in which it is true.
             </p>
             {save.refused !== '' ? (
               <p style={{ color: 'var(--danger)', fontSize: 13 }}>
@@ -127,11 +137,6 @@ export function Settings() {
                     saved.value === null
                     || JSON.stringify(saved.value[at]) !== JSON.stringify(person)
                   }
-                  footnote={
-                    person.variants.length === 0
-                      ? 'No variants: only the exact name will be matched, which finds a fraction of the appearances.'
-                      : `${person.variants.length} variant${person.variants.length === 1 ? '' : 's'}`
-                  }
                 >
                   <div style={{ display: 'grid', gap: 8 }}>
                     <label style={label}>
@@ -142,27 +147,6 @@ export function Settings() {
                           setPeople(edit(roster, at, { ...person, name: e.target.value }))
                         }
                         style={field}
-                      />
-                    </label>
-                    <label style={label}>
-                      What the text calls them, one per line
-                      <textarea
-                        rows={Math.min(8, Math.max(2, person.variants.length + 1))}
-                        value={person.variants.join('\n')}
-                        onChange={(e) =>
-                          setPeople(
-                            edit(roster, at, {
-                              ...person,
-                              // Blank lines are dropped, because a trailing newline is how everyone
-                              // finishes a list and an empty variant matches everything.
-                              variants: e.target.value
-                                .split('\n')
-                                .map((v) => v.trim())
-                                .filter((v) => v !== ''),
-                            }),
-                          )
-                        }
-                        style={{ ...field, fontFamily: 'ui-monospace, monospace', fontSize: 12 }}
                       />
                     </label>
                     <div>
@@ -238,7 +222,7 @@ function AddCharacter({
         type="button"
         disabled={name.trim() === '' || clash}
         onClick={() => {
-          onAdd({ slug, name: name.trim(), variants: [] })
+          onAdd({ slug, name: name.trim() })
           setName('')
         }}
         style={{

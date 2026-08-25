@@ -12,8 +12,8 @@ import { Settings } from './Settings.js'
  * save that never happened, which is the worst outcome available to a settings screen.
  */
 const ROSTER = [
-  { slug: 'pierre-bezukhov', name: 'Pierre Bezúkhov', variants: ['Pierre', 'the young man'] },
-  { slug: 'prince-andrew-bolkonski', name: 'Prince Andrew Bolkónski', variants: [] },
+  { slug: 'pierre-bezukhov', name: 'Pierre Bezúkhov' },
+  { slug: 'prince-andrew-bolkonski', name: 'Prince Andrew Bolkónski' },
 ]
 
 function serving(put: (body: string) => unknown) {
@@ -37,17 +37,18 @@ describe('the roster is editable', () => {
   })
   beforeEach(() => vi.stubGlobal('fetch', serving(() => ({ ok: true, saved: 2 }))))
 
-  it('shows every character with its variants', async () => {
+  it('shows every character, and offers no place to list their other names', async () => {
     render(<Settings />)
 
     await waitFor(() => expect(screen.getByDisplayValue('Pierre Bezúkhov')).toBeTruthy())
     expect(screen.getByText('Settings', { selector: 'h1' })).toBeTruthy()
-    // Queried off the element rather than by display value: a textarea's value carries a newline
-    // and getByDisplayValue normalises whitespace, so the match silently cannot be made.
-    const variants = document.querySelectorAll('textarea')
-    expect((variants[0] as HTMLTextAreaElement).value).toBe('Pierre\nthe young man')
-    // A character with no variants is told what that costs rather than left blank.
-    expect(screen.getByText(/only the exact name will be matched/)).toBeTruthy()
+    expect(screen.getByDisplayValue('Prince Andrew Bolkónski')).toBeTruthy()
+
+    // THE ABSENCE IS THE ASSERTION. A variants editor here asserts a form across all 365 chapters,
+    // so "my friend" becomes Pierre wherever anyone says it -- it finds him where he is not, and a
+    // false appearance is worse than a missing one. The `names` section does it per chapter.
+    expect(document.querySelectorAll('textarea').length).toBe(0)
+    expect(screen.getByText(/works that out per chapter/)).toBeTruthy()
   })
 
   it('sends what was edited, and does not send until something changed', async () => {
@@ -73,7 +74,8 @@ describe('the roster is editable', () => {
     await waitFor(() => expect(sent.length).toBe(1))
     const put = JSON.parse(sent[0] ?? '[]') as typeof ROSTER
     expect(put[1]?.name).toBe('Prince Andrew')
-    expect(put[0]?.variants).toEqual(['Pierre', 'the young man'])
+    expect(put[0]?.name).toBe('Pierre Bezúkhov')
+    expect(Object.keys(put[0] ?? {}).sort()).toEqual(['name', 'slug'])
   })
 
   it('says a refusal out loud instead of showing a save that did not happen', async () => {
