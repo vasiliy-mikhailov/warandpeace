@@ -141,6 +141,51 @@ public final class Chain {
      * dropped with a reason. Pierre has around eight hundred of them, and a fold that quietly
      * forgets Book Nine produces a page that looks perfectly plausible.
      */
+    /**
+     * THE SHAPE, AS OF THE PAGE-CARRYING DESIGN: one pass, and the fold is the reading.
+     *
+     * <p>{@link #extract()} wrote eight readings per chapter and {@link #compact()} folded them in
+     * two later passes. This replaces both. A chapter is read WITH the character's page so far and
+     * answers with a change to it, so there is nothing left over to compact.
+     *
+     * <p>WHAT IT COSTS, against what it replaced: 20 characters x 365 chapters x 8 sections =
+     * 58,400 triads became 20 x 365 = 7,300, and the 2,880 triads of the compact pass became none.
+     * One doer call per chapter now does the work of eight, and the eight VERIFIERS survive intact
+     * — every one of them is plain code and makes no model call, so keeping them specific is free.
+     * A single verifier over a whole change would have been the cheap-looking choice and a much
+     * weaker instrument: {@code appearances} is arithmetic over the chapter text and {@code quotes}
+     * resolves every span against what is actually spoken.
+     *
+     * <p>THE PAGE IS THE STATE AND ITS SIZE IS THE CEILING. It travels in the context on every one
+     * of the 365 calls. Measured: a finished 365-chapter page is about 19,100 tokens, so the worst
+     * call — the largest chapter at 5,692, the page, 4,000 of thinking and the change — is 29,293
+     * of 262,144, about 11%. See {@link Page} for why each field grows the way it does.
+     */
+    public Agent read() {
+        return Flow.each("character", corpus::heroes, Hero::slug, hero ->
+                Flow.each("book", corpus::books, Book::title, book ->
+                        Flow.each("chapter", () -> corpus.chaptersIn(book), Chapter::slug,
+                                chapter -> reading(hero, chapter))));
+    }
+
+    /**
+     * ONE CHAPTER AGAINST ONE PAGE: plan, change, check.
+     *
+     * <p>A triad like every other node in this program, so a chapter that will not settle costs its
+     * round budget and says so, and {@code Flow.resumable} above it means a killed run does not
+     * re-read the chapters it already folded in.
+     */
+    private Agent reading(Hero hero, Chapter chapter) {
+        // NULL-TOLERANT FOR THE REASON section() IS: Flow.each draws the shape by building its body
+        // with a null item, so the key renders as a template here and as a key at run time.
+        Supplier<String> key = () -> of(hero) + "#" + of(chapter);
+        return Flow.resumable(
+                Flow.triad("read", sections.pagePlanner(hero, chapter),
+                        sections.pageDoer(hero, chapter), sections.pageVerifier(hero, chapter),
+                        () -> sections.page(hero), trace, key.get(), ROUNDS),
+                journal, key);
+    }
+
     public Agent compact() {
         return Flow.each("character", corpus::heroes, Hero::slug, hero ->
                 Flow.seq("fold",
@@ -272,6 +317,17 @@ public final class Chain {
         Agent accounting(Section section, Hero hero, String level);
 
         String fragments(Section section, Hero hero, String level) throws IOException;
+
+        /* The page-carrying pass. See Chain.read(). */
+
+        Agent pagePlanner(Hero hero, Chapter chapter);
+
+        Flow.Doer pageDoer(Hero hero, Chapter chapter);
+
+        Agent pageVerifier(Hero hero, Chapter chapter);
+
+        /** The page so far, as the triad's workspace. */
+        String page(Hero hero) throws IOException;
     }
 
     public record Hero(String slug, String name) {

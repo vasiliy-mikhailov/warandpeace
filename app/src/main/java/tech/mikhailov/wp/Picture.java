@@ -26,14 +26,17 @@ public final class Picture {
         Chain chain = new Chain(new Sketch(), new Journal(Path.of("/tmp/wp-shape.journal.jsonl")),
                 QUIET, new Unbuilt());
 
-        System.out.println("── pass 1 ──────────────────────────────────────────");
+        System.out.println("── one pass, the page carried ─────────────────────");
+        System.out.print(Flow.shape(chain.read()));
+        System.out.println();
+        System.out.println("── what it replaced: pass 1 ───────────────────────");
         System.out.print(Flow.shape(chain.extract()));
         System.out.println();
-        System.out.println("── pass 2 ──────────────────────────────────────────");
+        System.out.println("── what it replaced: pass 2 ───────────────────────");
         System.out.print(Flow.shape(chain.compact()));
         System.out.println();
-        System.out.println("named nodes, in the order the program reaches them:");
-        for (String name : Flow.names(chain.extract())) {
+        System.out.println("named nodes of the page pass, in the order it reaches them:");
+        for (String name : Flow.names(chain.read())) {
             System.out.println("  " + name);
         }
     }
@@ -91,6 +94,28 @@ public final class Picture {
             return task -> {
                 throw new IllegalStateException("no verifier for " + s.stage() + " yet");
             };
+        }
+
+        public Agent pagePlanner(Chain.Hero h, Chain.Chapter c) {
+            return task -> {
+                throw new IllegalStateException("no page planner yet");
+            };
+        }
+
+        public Flow.Doer pageDoer(Chain.Hero h, Chain.Chapter c) {
+            return (plan, feedback) -> {
+                throw new IllegalStateException("no page doer yet");
+            };
+        }
+
+        public Agent pageVerifier(Chain.Hero h, Chain.Chapter c) {
+            return task -> {
+                throw new IllegalStateException("no page verifier yet");
+            };
+        }
+
+        public String page(Chain.Hero h) {
+            throw new IllegalStateException("no page yet");
         }
 
         public String facts(Chain.Section s, Chain.Hero h, Chain.Chapter c) {
